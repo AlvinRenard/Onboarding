@@ -33,6 +33,6 @@ class EmployeeController extends Controller
 		$emp = Employee::find($id);
 		$emp -> delete();
 
-		return "Berhasill Delete";
+		return "Berhasillll Delete";
 	}
 }
