@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ModelUser;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -29,7 +29,7 @@ class UserController extends Controller
         $email = $request->email;
         $password = $request->password;
 
-        $data = ModelUser::where('email',$email)->first();
+        $data = User::where('email',$email)->first();
         if($data){ //apakah email tersebut ada atau tidak
             if(Hash::check($password,$data->password)){
                 Session::put('name',$data->name);
@@ -63,7 +63,7 @@ class UserController extends Controller
             'confirmation' => 'required|same:password',
         ]);
 
-        $data =  new ModelUser();
+        $data =  new User();
         $data->name = $request->name;
         $data->email = $request->email;
         $data->password = bcrypt($request->password);
