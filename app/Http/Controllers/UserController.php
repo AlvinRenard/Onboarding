@@ -16,8 +16,8 @@ class UserController extends Controller
             return redirect('login')->with('alert','LOGIN DULU GA SEENAKNYA MASUK ANJING');
         }
         else{
-            $pegawai = DB::table('pegawai')->get();
-            return view('homepage',['pegawai' => $pegawai]);
+            $employees = DB::table('employees')->get();
+            return view('homepage',['employees' => $employees]);
         }
     }
 

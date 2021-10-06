@@ -463,7 +463,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>{{ $pegawai->count() }} </h3>
+                <h3>{{ $employees->count() }} </h3>
                 <p>User Registrations</p>
               </div>
               <div class="icon">
