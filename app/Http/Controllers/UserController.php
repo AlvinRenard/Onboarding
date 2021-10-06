@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -13,14 +14,23 @@ class UserController extends Controller
     //
     public function index(){
         if(!Session::get('login')){
-            return redirect('login')->with('alert','LOGIN DULU GA SEENAKNYA MASUK ANJING');
+            return redirect('login')->with('alert','LOGIN DULU');
         }
         else{
+            $progress= Employee::with('progress')->get();
             $employees = DB::table('employees')->get();
-            return view('homepage',['employees' => $employees]);
+            $pegawai = DB::table('employees')->paginate(10);
+            return view('homepage')->with('employees', $employees)->with('pegawai', $pegawai)->with('progress',$progress);
         }
     }
-
+    public function loginindex(){
+        if(Session::has('login')){
+            return redirect('home')->with('jsAlert','Sudah Login');
+        }
+        else{
+            return view('login');
+        }
+    }
     public function login(){
         return view('login');
     }

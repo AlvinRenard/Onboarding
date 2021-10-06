@@ -515,56 +515,25 @@
               <div class="card-body p-0">
                 <table class="table table-striped">
                   <thead>
+                  <th scope="col">#</th>
+                  <th scope="col">First name</th>
+                  <th scope="col">Job</th>
+                  <th scope="col">Progress</th>
+                  @foreach($progress as $p)
                     <tr>
-                      <th style="width: 10px">#</th>
-                      <th>Task</th>
-                      <th>Progress</th>
-                      <th style="width: 40px">Label</th>
+                    <td>{{ $p->id }}</td>
+                    <td>{{ $p->nama }}</td>
+			              <td>{{ $p->alamat }}</td>
+		              	<td>
+                      <div class="progress progress-xs">
+                      <div class="progress-bar progress-bar-danger" style="width: {{ $p->progress->progress }}% "></div>
+                        </div>
+                    </td>
                     </tr>
+                    @endforeach
                   </thead>
-                  <tbody>
-                    <tr>
-                      <td>1.</td>
-                      <td>Update software</td>
-                      <td>
-                        <div class="progress progress-xs">
-                          <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                        </div>
-                      </td>
-                      <td><span class="badge bg-danger">55%</span></td>
-                    </tr>
-                    <tr>
-                      <td>2.</td>
-                      <td>Clean database</td>
-                      <td>
-                        <div class="progress progress-xs">
-                          <div class="progress-bar bg-warning" style="width: 70%"></div>
-                        </div>
-                      </td>
-                      <td><span class="badge bg-warning">70%</span></td>
-                    </tr>
-                    <tr>
-                      <td>3.</td>
-                      <td>Cron job running</td>
-                      <td>
-                        <div class="progress progress-xs progress-striped active">
-                          <div class="progress-bar bg-primary" style="width: 30%"></div>
-                        </div>
-                      </td>
-                      <td><span class="badge bg-primary">30%</span></td>
-                    </tr>
-                    <tr>
-                      <td>4.</td>
-                      <td>Fix and squish bugs</td>
-                      <td>
-                        <div class="progress progress-xs progress-striped active">
-                          <div class="progress-bar bg-success" style="width: 90%"></div>
-                        </div>
-                      </td>
-                      <td><span class="badge bg-success">90%</span></td>
-                    </tr>
-                  </tbody>
                 </table>
+                {{ $pegawai->links() }}
               </div>
               <!-- /.card-body -->
           </section>

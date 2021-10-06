@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Employee extends Model
 {
-    use HasFactory;
+    protected $table = "employees";
+ 
+    public function progress()
+    {
+    	return $this->hasOne('App\Models\Progress',"EmployeeId");
+    }
 }
