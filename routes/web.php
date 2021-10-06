@@ -32,3 +32,4 @@ Route::post('/loginPost', 'App\Http\Controllers\UserController@loginPost');
 Route::get('/register', 'App\Http\Controllers\UserController@register');
 Route::post('/registerPost', 'App\Http\Controllers\UserController@registerPost');
 Route::get('/logout', 'App\Http\Controllers\UserController@logout');
+Route::get('/databaseview', 'App\Http\Controllers\UserController@index');

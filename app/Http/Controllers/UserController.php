@@ -6,6 +6,7 @@ use App\Models\ModelUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -15,7 +16,8 @@ class UserController extends Controller
             return redirect('login')->with('alert','LOGIN DULU GA SEENAKNYA MASUK ANJING');
         }
         else{
-            return view('homepage');
+            $pegawai = DB::table('pegawai')->get();
+            return view('homepage',['pegawai' => $pegawai]);
         }
     }
 
@@ -24,7 +26,6 @@ class UserController extends Controller
     }
 
     public function loginPost(Request $request){
-
         $email = $request->email;
         $password = $request->password;
 
