@@ -40,6 +40,9 @@ class UserController extends Controller
                 return redirect('login')->with('alert','Password atau Email, Salah !');
             }
         }
+        else{
+            return redirect('login')->with('alert','Password atau Email, Salah!');
+        }
     }
 
     public function logout(){
