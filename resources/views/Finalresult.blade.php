@@ -10,7 +10,7 @@
 <!-- cara penulisan isi section yang panjang -->
 @section('konten')
  
-	<p>Ini Adalah Halaman Home</p>
+	<p>Ini Adalah Halaman Homee</p>
 	<p>Selamat datang !</p>
 	<a href="/form/interview/pegawai"> Kembali</a>
  
