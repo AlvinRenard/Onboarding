@@ -80,4 +80,12 @@ class UserController extends Controller
         $data->save();
         return redirect('login')->with('alert-success','Kamu berhasil Register');
     }
+    public function show($id,$token=null){
+        $data['employee']= Employee::with('progress')->find($id);
+        if ($data['employee']->token!=$token) {
+            $data['message'] = "Token not match";
+            $data['employee'] = null;
+        }
+        return $data;
+    }
 }

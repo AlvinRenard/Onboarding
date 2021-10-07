@@ -528,6 +528,7 @@
                       <div class="progress progress-xs">
                       <div class="progress-bar progress-bar-danger" style="width: {{ $p->progress->progress }}% "></div>
                         </div>
+                        <a href="{{ '/onboarding/'.$p->id.'/'.$p->token }}">detail</a>
                     </td>
                     </tr>
                     @endforeach

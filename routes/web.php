@@ -35,6 +35,7 @@ Route::get('/logout', 'App\Http\Controllers\UserController@logout');
 Route::get('/databaseview', 'App\Http\Controllers\UserController@index');
 Route::get('admin/login', 'Auth\AdminAuthController@getLogin')->name('admin.login');
 Route::post('admin/login', 'Auth\AdminAuthController@postLogin');
+Route::get('/onboarding/{id}/{token?}', 'App\Http\Controllers\UserController@show');
 Route::middleware('auth:admin')->group(function(){
     // Tulis routemu di sini.
   });
