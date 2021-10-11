@@ -13,4 +13,8 @@ class Employee extends Model
     {
     	return $this->hasOne('App\Models\Progress',"EmployeeId");
     }
+    public function files()
+    {
+    	return $this->hasMany('App\Models\FileUpload',"EmployeeId");
+    }
 }

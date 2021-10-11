@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProgressTable extends Migration
+class CreateFileUploadsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateProgressTable extends Migration
      */
     public function up()
     {
-        Schema::create('progress', function (Blueprint $table) {
-            $table ->increments('id');
+        Schema::create('file_uploads', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('filename');
             $table->unsignedBigInteger('EmployeeId');
             $table->foreign('EmployeeId')->references('id')->on('employees');
-            $table -> string('progress');
-            
+            $table->timestamps();
         });
     }
 
@@ -29,6 +29,6 @@ class CreateProgressTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('progress');
+        Schema::dropIfExists('file_uploads');
     }
 }
