@@ -9,5 +9,5 @@ class FileUpload extends Model
 {
     protected $table = "file_uploads";
  
-    protected $fillable = ['filename','EmployeeId'];
+    protected $fillable = ['EmployeeId','type','file_fpk','file_cv','file_photo','file_ijazah'];
 }

@@ -15,6 +15,6 @@ class Employee extends Model
     }
     public function files()
     {
-    	return $this->hasMany('App\Models\FileUpload',"EmployeeId");
+    	return $this->hasOne('App\Models\FileUpload',"EmployeeId");
     }
 }

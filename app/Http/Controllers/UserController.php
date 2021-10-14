@@ -17,10 +17,17 @@ class UserController extends Controller
             return redirect('login')->with('alert','LOGIN DULU');
         }
         else{
+            $user = $employees = DB::table('users')->get();
             $progress= Employee::with('progress')->get();
+            $user1 = Employee::with('progress')
+                        ->whereBetween('grade', [0,1])
+                        ->get();
+            $user2 = Employee::with('progress')
+                        ->whereBetween('grade', [0,3])
+                        ->get();
             $employees = DB::table('employees')->get();
             $pegawai = DB::table('employees')->paginate(10);
-            return view('homepage')->with('employees', $employees)->with('pegawai', $pegawai)->with('progress',$progress);
+            return view('homepage')->with('employees', $employees)->with('pegawai', $pegawai)->with('progress',$progress)->with('user',$user)->with('user1',$user1)->with('user2',$user2);
         }
     }
     public function loginindex(){
@@ -34,6 +41,9 @@ class UserController extends Controller
     public function login(){
         return view('login');
     }
+    public function userlanding(){
+        return view('Employeelanding');
+    }
 
     public function loginPost(Request $request){
         $email = $request->email;
@@ -44,6 +54,7 @@ class UserController extends Controller
             if(Hash::check($password,$data->password)){
                 Session::put('name',$data->name);
                 Session::put('email',$data->email);
+                Session::put('grade',$data->grade);
                 Session::put('login',TRUE);
                 return redirect('home');
             }
@@ -71,12 +82,14 @@ class UserController extends Controller
             'email' => 'required|min:4|email|unique:users',
             'password' => 'required',
             'confirmation' => 'required|same:password',
+            'grade' => 'required',
         ]);
 
         $data =  new User();
         $data->name = $request->name;
         $data->email = $request->email;
         $data->password = bcrypt($request->password);
+        $data->grade = $request->grade;
         $data->save();
         return redirect('login')->with('alert-success','Kamu berhasil Register');
     }

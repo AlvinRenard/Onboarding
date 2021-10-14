@@ -18,6 +18,7 @@ class CreateEmployeesTable extends Migration
             $table ->bigIncrements('id');
 			$table -> string('nama');
 			$table -> string('alamat');
+            $table -> string('grade');
 			$table -> timestamps();
         });
     }

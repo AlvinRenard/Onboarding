@@ -11804,7 +11804,7 @@ section#contact form#contactForm :-ms-input-placeholder {
   content: none;
 }
 .progressbar li.active {
-  color: green;
+  color: red;
 }
 .progressbar li.active:before {
   border-color: #55b776;

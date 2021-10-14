@@ -28,6 +28,7 @@ Route::get('/home/add', 'App\Http\Controllers\InterviewControl@add');
 Route::post('/home/dbinput', 'App\Http\Controllers\InterviewControl@store');
 Route::get('/success', 'App\Http\Controllers\InterviewControl@success');
 Route::get('/login', 'App\Http\Controllers\UserController@loginindex');
+Route::get('/userlanding', 'App\Http\Controllers\UserController@userlanding');
 Route::post('/loginPost', 'App\Http\Controllers\UserController@loginPost');
 Route::get('/register', 'App\Http\Controllers\UserController@register');
 Route::post('/registerPost', 'App\Http\Controllers\UserController@registerPost');
@@ -36,7 +37,15 @@ Route::get('/databaseview', 'App\Http\Controllers\UserController@index');
 Route::get('admin/login', 'Auth\AdminAuthController@getLogin')->name('admin.login');
 Route::post('admin/login', 'Auth\AdminAuthController@postLogin');
 Route::get('/onboarding/{id}/{token?}', 'App\Http\Controllers\UserController@show');
-Route::post('/uploaddatabase', 'App\Http\Controllers\FileUploadController@fileStore');
+Route::get('/downloadfpk/{id}', 'App\Http\Controllers\DownloadController@downloadfpk');
+Route::get('/downloadijazah/{id}', 'App\Http\Controllers\DownloadController@downloadijazah');
+Route::get('/downloadcv/{id}', 'App\Http\Controllers\DownloadController@downloadcv');
+Route::get('/downloadphoto/{id}', 'App\Http\Controllers\DownloadController@downloadphoto');
+Route::post('/uploaddatabase1', 'App\Http\Controllers\FileUploadController@fileStorecv');
+Route::post('/uploaddatabase2', 'App\Http\Controllers\FileUploadController@fileStorefpk');
+Route::post('/uploaddatabase3', 'App\Http\Controllers\FileUploadController@fileStoreijazah');
+Route::post('/uploaddatabase4', 'App\Http\Controllers\FileUploadController@fileStorephoto');
+Route::get('sendemail','App\Http\Controllers\EmailController@index');
 Route::middleware('auth:admin')->group(function(){
     // Tulis routemu di sini.
   });
