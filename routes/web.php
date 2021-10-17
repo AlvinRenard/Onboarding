@@ -28,7 +28,7 @@ Route::get('/home/add', 'App\Http\Controllers\InterviewControl@add');
 Route::post('/home/dbinput', 'App\Http\Controllers\InterviewControl@store');
 Route::get('/success', 'App\Http\Controllers\InterviewControl@success');
 Route::get('/login', 'App\Http\Controllers\UserController@loginindex');
-Route::get('/userlanding', 'App\Http\Controllers\UserController@userlanding');
+Route::get('/userlanding/{id}', 'App\Http\Controllers\UserController@userlanding');
 Route::post('/loginPost', 'App\Http\Controllers\UserController@loginPost');
 Route::get('/register', 'App\Http\Controllers\UserController@register');
 Route::post('/registerPost', 'App\Http\Controllers\UserController@registerPost');
@@ -45,7 +45,7 @@ Route::post('/uploaddatabase1', 'App\Http\Controllers\FileUploadController@fileS
 Route::post('/uploaddatabase2', 'App\Http\Controllers\FileUploadController@fileStorefpk');
 Route::post('/uploaddatabase3', 'App\Http\Controllers\FileUploadController@fileStoreijazah');
 Route::post('/uploaddatabase4', 'App\Http\Controllers\FileUploadController@fileStorephoto');
-Route::get('sendemail','App\Http\Controllers\EmailController@index');
+Route::get('/sendemail/{id}','App\Http\Controllers\EmailController@index');
 Route::middleware('auth:admin')->group(function(){
     // Tulis routemu di sini.
   });

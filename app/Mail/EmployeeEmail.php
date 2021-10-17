@@ -16,9 +16,9 @@ class EmployeeEmail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($id)
     {
-        //
+        $this->id  =  $id;
     }
 
     /**
@@ -29,11 +29,10 @@ class EmployeeEmail extends Mailable
     public function build()
     {
         return $this->from('alvinrenard09@gmail.com')
-                   ->view('success');
-                //    ->with(
-                //     [
-                //         'nama' => 'Diki Alfarabi Hadi',
-                //         'website' => 'www.malasngoding.com',
-                //     ]);
+                   ->view('success')
+                   ->with(
+                    [
+                        'id' => $this->id,
+                    ]);
     }
 }

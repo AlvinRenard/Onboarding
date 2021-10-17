@@ -41,8 +41,9 @@ class UserController extends Controller
     public function login(){
         return view('login');
     }
-    public function userlanding(){
-        return view('Employeelanding');
+    public function userlanding($id){
+        $data['employee']= Employee::with('progress')->find($id);
+        return view('Employeelanding')->with('data', $data);
     }
 
     public function loginPost(Request $request){

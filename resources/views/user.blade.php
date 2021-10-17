@@ -27,112 +27,206 @@
                 <h2 class="section-heading text-uppercase" style=" padding-bottom: 5rem;">Your Progress</h2>
                 <ul class="progressbar">
                     @if ($data['employee'] -> progress -> progress == "1")
-                    <li class="active">Submit CV Document</li>
-                    <li>Submit FPK Document</li>
-                    <li>Submit Ijazah Document</li>
-                    <li>Submit Photo</li>
-                    <div style=" padding-bottom: 12rem"></div>
+                    <div class="tab" role="tabpanel">
+                        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                            <li class="nav-item active" role="presentation">
+                                <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
+                                    data-bs-target="#home" type="button" role="tab" aria-controls="home"
+                                    aria-selected="true">Submit CV</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button
+                                    class="nav-link {{$data['employee'] -> progress -> progress < 1 ? 'disabled' : ''}}"
+                                    id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
+                                    role="tab" aria-controls="profile" aria-selected="false">Submit FPK</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button
+                                    class="nav-link {{$data['employee'] -> progress -> progress < 2 ? 'disabled' : ''}}"
+                                    id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button"
+                                    role="tab" aria-controls="contact" aria-selected="false">Submit Ijazah</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button
+                                    class="nav-link {{$data['employee'] -> progress -> progress < 3 ? 'disabled' : ''}}"
+                                    id="s-tab" data-bs-toggle="tab" data-bs-target="#s" type="button" role="tab"
+                                    aria-controls="s" aria-selected="false">s</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div style=" padding-bottom: 1rem"></div>
                     @elseif ($data['employee'] -> progress -> progress == "2")
-                    <li class="active">Submit CV Document</li>
-                    <li class="active">Submit FPK Document</li>
-                    <li>Submit Ijazah Document</li>
-                    <li>Submit Photo</li>
-                    <div style=" padding-bottom: 12rem"></div>
+                    <div class="tab" role="tabpanel">
+                        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                            <li class="nav-item active" role="presentation">
+                                <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
+                                    data-bs-target="#home" type="button" role="tab" aria-controls="home"
+                                    aria-selected="true">Submit CV</button>
+                            </li>
+                            <li class="nav-item active" role="presentation">
+                                <button
+                                    class="nav-link {{$data['employee'] -> progress -> progress < 1 ? 'disabled' : ''}}"
+                                    id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
+                                    role="tab" aria-controls="profile" aria-selected="false">Submit FPK</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button
+                                    class="nav-link {{$data['employee'] -> progress -> progress < 2 ? 'disabled' : ''}}"
+                                    id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button"
+                                    role="tab" aria-controls="contact" aria-selected="false">Submit Ijazah</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button
+                                    class="nav-link {{$data['employee'] -> progress -> progress < 3 ? 'disabled' : ''}}"
+                                    id="s-tab" data-bs-toggle="tab" data-bs-target="#s" type="button" role="tab"
+                                    aria-controls="s" aria-selected="false">s</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div style=" padding-bottom: 1rem"></div>
                     @elseif ($data['employee'] -> progress -> progress == "3")
-                    <li class="active">Submit CV Document</li>
-                    <li class="active">Submit FPK Document</li>
-                    <li class="active">Submit Ijazah Document</li>
-                    <li>Submit Photo</li>
-                    <div style=" padding-bottom: 12rem"></div>
+                    <div class="tab" role="tabpanel">
+                        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                            <li class="nav-item active" role="presentation">
+                                <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
+                                    data-bs-target="#home" type="button" role="tab" aria-controls="home"
+                                    aria-selected="true">Submit CV</button>
+                            </li>
+                            <li class="nav-item active" role="presentation">
+                                <button
+                                    class="nav-link {{$data['employee'] -> progress -> progress < 1 ? 'disabled' : ''}}"
+                                    id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
+                                    role="tab" aria-controls="profile" aria-selected="false">Submit FPK</button>
+                            </li>
+                            <li class="nav-item active" role="presentation">
+                                <button
+                                    class="nav-link {{$data['employee'] -> progress -> progress < 2 ? 'disabled' : ''}}"
+                                    id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button"
+                                    role="tab" aria-controls="contact" aria-selected="false">Submit Ijazah</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button
+                                    class="nav-link {{$data['employee'] -> progress -> progress < 3 ? 'disabled' : ''}}"
+                                    id="s-tab" data-bs-toggle="tab" data-bs-target="#s" type="button" role="tab"
+                                    aria-controls="s" aria-selected="false">s</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div style=" padding-bottom: 1rem"></div>
                     @elseif ($data['employee'] -> progress -> progress == "4")
-                    <li class="active">Submit CV Document</li>
-                    <li class="active">Submit FPK Document</li>
-                    <li class="active">Submit Ijazah Document</li>
-                    <li class="active">Submit Photo</li>
-                    <div style=" padding-bottom: 12rem"></div>
-                    <a href="/userlanding" class="btn btn-primary btn-lg">Finalize</a>
+                    <div class="tab" role="tabpanel">
+                        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                            <li class="nav-item active" role="presentation">
+                                <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
+                                    data-bs-target="#home" type="button" role="tab" aria-controls="home"
+                                    aria-selected="true">Submit CV</button>
+                            </li>
+                            <li class="nav-item active" role="presentation">
+                                <button
+                                    class="nav-link {{$data['employee'] -> progress -> progress < 1 ? 'disabled' : ''}}"
+                                    id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
+                                    role="tab" aria-controls="profile" aria-selected="false">Submit FPK</button>
+                            </li>
+                            <li class="nav-item active" role="presentation">
+                                <button
+                                    class="nav-link {{$data['employee'] -> progress -> progress < 2 ? 'disabled' : ''}}"
+                                    id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button"
+                                    role="tab" aria-controls="contact" aria-selected="false">Submit Ijazah</button>
+                            </li>
+                            <li class="nav-item active" role="presentation">
+                                <button
+                                    class="nav-link {{$data['employee'] -> progress -> progress < 3 ? 'disabled' : ''}}"
+                                    id="s-tab" data-bs-toggle="tab" data-bs-target="#s" type="button" role="tab"
+                                    aria-controls="s" aria-selected="false">s</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="{{ '/sendemail/'.$data['employee']->id}}">detail</a>
                     @else
-                    <li>Submit CV Document</li>
-                    <li>Submit FPK Document</li>
-                    <li>Submit Ijazah Document</li>
-                    <li>Submit Photo</li>
-                    <div style=" padding-bottom: 12rem"></div>
+                    <div class="tab" role="tabpanel">
+                        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
+                                    data-bs-target="#home" type="button" role="tab" aria-controls="home"
+                                    aria-selected="true">Submit CV</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button
+                                    class="nav-link {{$data['employee'] -> progress -> progress < 1 ? 'disabled' : ''}}"
+                                    id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
+                                    role="tab" aria-controls="profile" aria-selected="false">Submit FPK</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button
+                                    class="nav-link {{$data['employee'] -> progress -> progress < 2 ? 'disabled' : ''}}"
+                                    id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button"
+                                    role="tab" aria-controls="contact" aria-selected="false">Submit Ijazah</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button
+                                    class="nav-link {{$data['employee'] -> progress -> progress < 3 ? 'disabled' : ''}}"
+                                    id="s-tab" data-bs-toggle="tab" data-bs-target="#s" type="button" role="tab"
+                                    aria-controls="s" aria-selected="false">s</button>
+                            </li>
+                        </ul>
+                    </div>
                     @endif
             </div>
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-lg-8 col-xl-12 text-center">
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
-                                type="button" role="tab" aria-controls="home" aria-selected="true">Home</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link {{$data['employee'] -> progress -> progress < 1 ? 'disabled' : ''}}"
-                                id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab"
-                                aria-controls="profile" aria-selected="false">Profile</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link {{$data['employee'] -> progress -> progress < 2 ? 'disabled' : ''}}"
-                                id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab"
-                                aria-controls="contact" aria-selected="false">Contact</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link {{$data['employee'] -> progress -> progress < 3 ? 'disabled' : ''}}"
-                                id="s-tab" data-bs-toggle="tab" data-bs-target="#s" type="button" role="tab"
-                                aria-controls="s" aria-selected="false">s</button>
-                        </li>
-                    </ul>
-                    <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <form action="/uploaddatabase1" method="post" enctype="multipart/form-data">
-                                {{ csrf_field() }}
-                                <input type="hidden" name="id" value="{{$data['employee']->id}}">
-                                <input type="hidden" name="process" value="1">
-                                <div class="form-group">
-                                    <input name="file" type="file" class="form-control"><br />
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-block">Submit</button>
-
-                            </form>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <form action="/uploaddatabase1" method="post" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="id" value="{{$data['employee']->id}}">
+                        <input type="hidden" name="process" value="1">
+                        <div class="form-group">
+                            <input name="file" type="file" class="form-control"><br />
                         </div>
-                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                            <form action="/uploaddatabase2" method="post" enctype="multipart/form-data">
-                                {{ csrf_field() }}
-                                <input type="hidden" name="id" value="{{$data['employee']->id}}">
-                                <input type="hidden" name="process" value="2">
-                                <div class="form-group">
-                                    <input name="file" type="file" class="form-control"><br />
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-block">Submit</button>
-
-                            </form>
+                        <div class="row justify-content-center">
+                            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
                         </div>
-                        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                            <form action="/uploaddatabase3" method="post" enctype="multipart/form-data">
-                                {{ csrf_field() }}
-                                <input type="hidden" name="id" value="{{$data['employee']->id}}">
-                                <input type="hidden" name="process" value="3">
-                                <div class="form-group">
-                                    <input name="file" type="file" class="form-control"><br />
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-block">Submit</button>
-
-                            </form>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <form action="/uploaddatabase2" method="post" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="id" value="{{$data['employee']->id}}">
+                        <input type="hidden" name="process" value="2">
+                        <div class="form-group">
+                            <input name="file" type="file" class="form-control"><br />
                         </div>
-                        <div class="tab-pane fade" id="s" role="tabpanel" aria-labelledby="s-tab">
-                            <form action="/uploaddatabase4" method="post" enctype="multipart/form-data">
-                                {{ csrf_field() }}
-                                <input type="hidden" name="id" value="{{$data['employee']->id}}">
-                                <input type="hidden" name="process" value="4">
-                                <div class="form-group">
-                                    <input name="file" type="file" class="form-control"><br />
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-block">Submit</button>
-
-                            </form>
+                        <div class="row justify-content-center">
+                            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
                         </div>
-                    </div>
-                    <!-- <form action="/uploaddatabase" method="post" enctype="multipart/form-data">
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                    <form action="/uploaddatabase3" method="post" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="id" value="{{$data['employee']->id}}">
+                        <input type="hidden" name="process" value="3">
+                        <div class="form-group">
+                            <input name="file" type="file" class="form-control"><br />
+                        </div>
+                        <div class="row justify-content-center">
+                            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="s" role="tabpanel" aria-labelledby="s-tab">
+                    <form action="/uploaddatabase4" method="post" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="id" value="{{$data['employee']->id}}">
+                        <input type="hidden" name="process" value="4">
+                        <div class="form-group">
+                            <input name="file" type="file" class="form-control"><br />
+                        </div>
+                        <div class="row justify-content-center">
+                            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                        </div>
+
+                    </form>
+                </div>
+                <!-- <form action="/uploaddatabase" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <input type="hidden" name="id" value="{{$data['employee']->id}}">
                 <div class="form-group">
@@ -143,8 +237,10 @@
                     </div>
                 </div>
                 </form> -->
-                </div>
             </div>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-                crossorigin="anonymous"></script>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
+
+</html>

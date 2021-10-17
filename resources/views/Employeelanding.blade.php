@@ -33,6 +33,7 @@
                 <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-8 align-self-end">
                         <h1 class="text-white font-weight-bold">All Set! Ready to go</h1>
+                        <h1 class="text-white font-weight-bold"> {{$data['employee']-> nama}}</h1>
                         <hr class="divider" />
                     </div>
                     <div class="col-lg-8 align-self-baseline">
