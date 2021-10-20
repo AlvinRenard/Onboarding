@@ -59,7 +59,6 @@
                     <i class="fas fa-times"></i>
                   </button>
                   <a href="/logout" class="btn btn-primary btn-lg">Logout</a>
-
                 </div>
               </div>
             </form>
@@ -113,10 +112,8 @@
                 <p>Dashboard</p>
               </a>
             </li>
-            <li>
-            </li>
             <li class="nav-item">
-              <a href="/ticket" class="nav-link">
+              <a href="/form" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>Ticket Status</p>
               </a>
@@ -136,8 +133,8 @@
           <div class="row mb-2">
             <div class="col-sm-6">
               <h1 class="m-0">Dashboard</h1>
-            </div>
-    <div class="col-sm-6">
+            </div><!-- /.col -->
+            <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item active">HR Dashboard</li>
@@ -232,169 +229,26 @@
             </div>
             <!-- /.card-header -->
             <div class="card">
-              @if ( Session()->get('grade') == 0)
               <div class="card-body p-0">
                 <table class="table table-striped">
                   <thead>
                     <th class="text-center" scope="col">#</th>
                     <th class="text-center" scope="col">First name</th>
                     <th class="text-center" scope="col">Job</th>
-                    <th class="text-center" scope="col">Progress</th>
-                    <th class="text-center" scope="col">User Progress</th>
-                    <th class="text-center" scope="col">Notify Employee</th>
-                    <th class="text-center" scope="col">Notify Remuneration</th>
-                    @foreach($user1 as $s1)
+                    <th class="text-center" scope="col">Status</th>
+                    @foreach($empdata as $dd)
                     <tr>
-                      <td class="text-center">{{ $s1->id }}</td>
-                      <td class="text-center">{{ $s1->nama }}</td>
-                      <td class="text-center">{{ $s1->posisi }}</td>
-                      <td class="text-center">
-                        <ul class="progressbar">
-                          @if ($s1 -> progress -> progress == "1")
-                          <li class="active">Submit CV Document</br>
-                            <a href="{{ '/downloadcv/'.$s1->id }}">Download</a>
-                          </li>
-                          <li>Submit FPK Document</li>
-                          <li>Submit Ijazah Document</li>
-                          <li>Submit Photo</li>
-                          @elseif ($s1 -> progress -> progress == "2")
-                          <li class="active">Submit CV Document</br>
-                            <a href="{{ '/downloadcv/'.$s1->id }}">Download</a>
-                          </li>
-                          <li class="active">Submit FPK Document</br>
-                            <a href="{{ '/downloadfpk/'.$s1->id }}">Download</a>
-                          </li>
-                          <li>Submit Ijazah Document</li>
-                          <li>Submit Photo</li>
-                          @elseif ($s1 -> progress -> progress == "3")
-                          <li class="active">Submit CV Document</br>
-                            <a href="{{ '/downloadcv/'.$s1->id }}">Download</a>
-                          </li>
-                          <li class="active">Submit FPK Document</br>
-                            <a href="{{ '/downloadfpk/'.$s1->id }}">Download</a>
-                          </li>
-                          <li class="active">Submit Ijazah Document</br>
-                            <a href="{{ '/downloadijazah/'.$s1->id }}">Download</a>
-                          </li>
-                          <li>Submit Photo</li>
-                          @elseif ($s1 -> progress -> progress == "4")
-                          <li class="active">Submit CV Document</br>
-                            <a href="{{ '/downloadcv/'.$s1->id }}">Download</a>
-                          </li>
-                          <li class="active">Submit FPK Document</br>
-                            <a href="{{ '/downloadfpk/'.$s1->id }}">Download</a>
-                          </li>
-                          <li class="active">Submit Ijazah Document</br>
-                            <a href="{{ '/downloadijazah/'.$s1->id }}">Download</a>
-                          </li>
-                          <li class="active">Submit Photo</br>
-                            <a href="{{ '/downloadphoto/'.$s1->id }}">Download</a>
-                          </li>
-                          @elseif ($s1 -> progress -> progress == "0")
-                          <li>Submit CV Document</li>
-                          <li>Submit FPK Document</li>
-                          <li>Submit Ijazah Document</li>
-                          <li>Submit Photo</li>
-                          @endif
-                      </td>
-                      <td class="text-center">
-                        <a href="{{ '/onboarding/'.$s1->id.'/'.$s1->token }}"> See details</a>
-
-                        <!-- <a href="{{ '/download/'.$s1->id }}">detail</a> -->
-                      </td>
-                      <td>
-                        <a href="{{ '/sendemail/'.$s1->id}}">See details</a>
-                      </td>
+                      <td class="text-center">{{ $dd->EmployeeId }}</td>
+                      <td class="text-center">{{ $dd->nama }}</td>
+                      <td class="text-center">{{ $dd->alamat }}</td>
+                      <td class="text-center">{{ $dd->status }}</td>
                     </tr>
                     @endforeach
                   </thead>
                 </table>
                 {{ $pegawai->links() }}
               </div>
-              @endif
               <!-- /.card-header -->
-              @if ( Session()->get('grade') == 1)
-              <div class="card-body p-0">
-                <table class="table table-striped">
-                  <thead>
-                    <th class="text-center" scope="col">#</th>
-                    <th class="text-center" scope="col">First name</th>
-                    <th class="text-center" scope="col">Job</th>
-                    <th class="text-center" scope="col">Progress</th>
-                    <th class="text-center" scope="col">User Progress</th>
-                    <th class="text-center" scope="col">Notify Employee</th>
-                    <th class="text-center" scope="col">Notify Remuneration</th>
-                    @foreach($user2 as $s2)
-                    <tr>
-                      <td class="text-center">{{ $s2->id }}</td>
-                      <td class="text-center">{{ $s2->nama }}</td>
-                      <td class="text-center">{{ $s2->posisi }}</td>
-                      <td class="text-center">
-                        <ul class="progressbar">
-                          @if ($s2 -> progress -> progress == "1")
-                          <li class="active">Submit CV Document</br>
-                            <a href="{{ '/downloadcv/'.$s2->id }}">Download</a>
-                          </li>
-                          <li>Submit FPK Document</li>
-                          <li>Submit Ijazah Document</li>
-                          <li>Submit Photo</li>
-                          @elseif ($s2 -> progress -> progress == "2")
-                          <li class="active">Submit CV Document</br>
-                            <a href="{{ '/downloadcv/'.$s2->id }}">Download</a>
-                          </li>
-                          <li class="active">Submit FPK Document</br>
-                            <a href="{{ '/downloadfpk/'.$s2->id }}">Download</a>
-                          </li>
-                          <li>Submit Ijazah Document</li>
-                          <li>Submit Photo</li>
-                          @elseif ($s2 -> progress -> progress == "3")
-                          <li class="active">Submit CV Document</br>
-                            <a href="{{ '/downloadcv/'.$s2->id }}">Download</a>
-                          </li>
-                          <li class="active">Submit FPK Document</br>
-                            <a href="{{ '/downloadfpk/'.$s2->id }}">Download</a>
-                          </li>
-                          <li class="active">Submit Ijazah Document</br>
-                            <a href="{{ '/downloadijazah/'.$s2->id }}">Download</a>
-                          </li>
-                          <li>Submit Photo</li>
-                          @elseif ($s2 -> progress -> progress == "4")
-                          <li class="active">Submit CV Document</br>
-                            <a href="{{ '/downloadcv/'.$s2->id }}">Download</a>
-                          </li>
-                          <li class="active">Submit FPK Document</br>
-                            <a href="{{ '/downloadfpk/'.$s2->id }}">Download</a>
-                          </li>
-                          <li class="active">Submit Ijazah Document</br>
-                            <a href="{{ '/downloadijazah/'.$s2->id }}">Download</a>
-                          </li>
-                          <li class="active">Submit Photo</br>
-                            <a href="{{ '/downloadphoto/'.$s2->id }}">Download</a>
-                          </li>
-                          @else
-                          <li>Submit CV Document</li>
-                          <li>Submit FPK Document</li>
-                          <li>Submit Ijazah Document</li>
-                          <li>Submit Photo</li>
-                          @endif
-                      </td>
-                      <td class="text-center">
-                        <a href="{{ '/onboarding/'.$s2->id.'/'.$s2->token }}"> See details</a>
-                      </td>
-                      <td class="text-center">
-                        <a href="{{ '/empemail/'.$s2->id.'/'.$s2->token }}">Send Email</a>
-                      </td>
-                      <td class="text-center">
-                        <a href="{{ '/sendemail/'.$s2->id}}">Send Email</a>
-                      </td>
-                    </tr>
-                    @endforeach
-                  </thead>
-                </table>
-                {{ $pegawai->links() }}
-              </div>
-              @endif
-              <!-- /.card-body -->
       </section>
       <!-- /.Left col -->
       <!-- right col (We are only adding the ID to make the widgets sortable)-->

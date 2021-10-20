@@ -17,4 +17,8 @@ class Employee extends Model
     {
     	return $this->hasOne('App\Models\FileUpload',"EmployeeId");
     }
+    public function remuneration()
+    {
+    	return $this->hasOne('App\Models\Remuneration',"EmployeeId");
+    }
 }

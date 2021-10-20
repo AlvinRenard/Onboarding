@@ -141,7 +141,7 @@
                             </li>
                         </ul>
                     </div>
-                    <a href="{{ '/sendemail/'.$data['employee']->id}}">detail</a>
+                    <a href="{{ '/userlanding/'.$data['employee']->id}}"class="btn btn-success">Finalize</a>
                     @else
                     <div class="tab" role="tabpanel">
                         <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
@@ -174,7 +174,7 @@
             </div>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <form action="/uploaddatabase1" method="post" enctype="multipart/form-data">
+                    <form action="{{ '/uploaddatabase1/'.$data['employee']->id.'/'.$data['employee']->token }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <input type="hidden" name="id" value="{{$data['employee']->id}}">
                         <input type="hidden" name="process" value="1">
@@ -187,7 +187,7 @@
                     </form>
                 </div>
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <form action="/uploaddatabase2" method="post" enctype="multipart/form-data">
+                    <form action="{{ '/uploaddatabase2/'.$data['employee']->id.'/'.$data['employee']->token }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <input type="hidden" name="id" value="{{$data['employee']->id}}">
                         <input type="hidden" name="process" value="2">
@@ -200,7 +200,7 @@
                     </form>
                 </div>
                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                    <form action="/uploaddatabase3" method="post" enctype="multipart/form-data">
+                    <form action="{{ '/uploaddatabase3/'.$data['employee']->id.'/'.$data['employee']->token }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <input type="hidden" name="id" value="{{$data['employee']->id}}">
                         <input type="hidden" name="process" value="3">
@@ -213,7 +213,7 @@
                     </form>
                 </div>
                 <div class="tab-pane fade" id="s" role="tabpanel" aria-labelledby="s-tab">
-                    <form action="/uploaddatabase4" method="post" enctype="multipart/form-data">
+                    <form action="{{ '/uploaddatabase4/'.$data['employee']->id.'/'.$data['employee']->token }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <input type="hidden" name="id" value="{{$data['employee']->id}}">
                         <input type="hidden" name="process" value="4">

@@ -19,6 +19,7 @@ class CreateEmployeesTable extends Migration
 			$table -> string('nama');
 			$table -> string('alamat');
             $table -> string('grade');
+            $table -> string('status');
 			$table -> timestamps();
         });
     }

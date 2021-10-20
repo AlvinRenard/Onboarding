@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFileUploadsTable extends Migration
+class CreateRemunerationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,15 @@ class CreateFileUploadsTable extends Migration
      */
     public function up()
     {
-        Schema::create('file_uploads', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('remuneration', function (Blueprint $table) {
+            $table ->bigIncrements('id');
             $table->unsignedBigInteger('EmployeeId');
             $table->foreign('EmployeeId')->references('id')->on('employees');
-            $table->string('type');
-            $table->string('file_fpk');
-            $table->string('file_cv');
-            $table->string('file_ijazah');
-            $table->string('file_photo');
-            $table->timestamps();
+			$table ->string('nama');
+			$table ->string('alamat');
+            $table ->string('grade');
+            $table ->string('status');
+			$table ->timestamps();
         });
     }
 
@@ -33,6 +32,6 @@ class CreateFileUploadsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('file_uploads');
+        Schema::dropIfExists('remuneration');
     }
 }

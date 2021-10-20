@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class FileUploadController extends Controller
 
 {
-    public function fileStorefpk(Request $request){
+    public function fileStorefpk(Request $request,$id,$token=null){
         // return $request->all();
         $request->validate([
             'file' => 'required',
@@ -18,6 +18,7 @@ class FileUploadController extends Controller
         if (count($dataexist) > 0){
             FileUpload::destroy($dataexist);
         }
+        $data['employee']= Employee::with('progress')->find($id);
        $fileLoc = public_path('uploads');
        $fileName =time().'-'.request()->file->getClientOriginalName();
        $request->file->move(public_path('uploads'), $fileName);
@@ -30,9 +31,9 @@ class FileUploadController extends Controller
        $employee->progress->progress = $request->process;
        }
         $employee->push();
-        return response()->json(['success'=>'File Uploaded Successfully']);
+        return redirect('/onboarding/'.$data['employee']->id.'/'.$data['employee']->token);
     }
-    public function fileStorecv(Request $request){
+    public function fileStorecv(Request $request,$id,$token=null){
         // return $request->all();
         $request->validate([
             'file' => 'required',
@@ -42,6 +43,7 @@ class FileUploadController extends Controller
         if (count($dataexist) > 0){
             FileUpload::destroy($dataexist);
         }
+        $data['employee']= Employee::with('progress')->find($id);
        $fileLoc = public_path('uploads');
        $fileName =time().'-'.request()->file->getClientOriginalName();
        $request->file->move(public_path('uploads'), $fileName);
@@ -58,9 +60,9 @@ class FileUploadController extends Controller
        $employee->progress->progress = $request->process;
        }
         $employee->push();
-        return response()->json(['success'=>'File Uploaded Successfully']);
+        return redirect('/onboarding/'.$data['employee']->id.'/'.$data['employee']->token);
     }
-    public function fileStoreijazah(Request $request){
+    public function fileStoreijazah(Request $request,$id,$token=null){
         // return $request->all();
         $request->validate([
             'file' => 'required',
@@ -70,6 +72,7 @@ class FileUploadController extends Controller
         if (count($dataexist) > 0){
             FileUpload::destroy($dataexist);
         }
+        $data['employee']= Employee::with('progress')->find($id);
        $fileLoc = public_path('uploads');
        $fileName =time().'-'.request()->file->getClientOriginalName();
        $request->file->move(public_path('uploads'), $fileName);
@@ -82,9 +85,9 @@ class FileUploadController extends Controller
        $employee->progress->progress = $request->process;
        }
         $employee->push();
-        return response()->json(['success'=>'File Uploaded Successfully']);
+        return redirect('/onboarding/'.$data['employee']->id.'/'.$data['employee']->token);
     }
-    public function fileStorephoto(Request $request){
+    public function fileStorephoto(Request $request,$id,$token=null){
         // return $request->all();
         $request->validate([
             'file' => 'required',
@@ -94,6 +97,7 @@ class FileUploadController extends Controller
         if (count($dataexist) > 0){
             FileUpload::destroy($dataexist);
         }
+        $data['employee']= Employee::with('progress')->find($id);
        $fileLoc = public_path('uploads');
        $fileName =time().'-'.request()->file->getClientOriginalName();
        $request->file->move(public_path('uploads'), $fileName);
@@ -106,6 +110,6 @@ class FileUploadController extends Controller
        $employee->progress->progress = $request->process;
        }
         $employee->push();
-        return response()->json(['success'=>'File Uploaded Successfully']);
+        return redirect('/onboarding/'.$data['employee']->id.'/'.$data['employee']->token);
     }
 }

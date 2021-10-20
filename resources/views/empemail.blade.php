@@ -358,7 +358,7 @@
                                 <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                                   <tbody>
                                     <tr>
-                                      <td> <a href="{{ 'http://localhost:8000/Remuneration/'.$id }}" target="_blank">Call To Action</a> </td>
+                                      <td> <a href="{{ 'http://localhost:8000/onboarding/'.$id.'/'.$token }}" target="_blank">Click Here</a> </td>
                                     </tr>
                                   </tbody>
                                 </table>
