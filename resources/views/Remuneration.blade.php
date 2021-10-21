@@ -74,22 +74,22 @@ All Set! Ready to be reviewed
         {{ $data['employee']->nama }}
         </dd>
         <dt>
-          E-mail
+          Position
         </dt>
         <dd>
-        {{ $data['employee']->alamat }}
+        {{ $data['employee']->posisi }}
         </dd>
         <dt>
-          City
+        E-mail
         </dt>
         <dd>
-        {{ $data['employee']->alamat }}
+        {{ $data['employee']->email }}
         </dd>
         <dt>
-          Phone-Number
+          Grade
         </dt>
         <dd>
-        {{ $data['employee']->alamat }}
+        {{ $data['employee']->grade }}
         </dd>
         <dt>
           CV Document

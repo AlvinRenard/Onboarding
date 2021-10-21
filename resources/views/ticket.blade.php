@@ -234,13 +234,17 @@
                   <thead>
                     <th class="text-center" scope="col">#</th>
                     <th class="text-center" scope="col">First name</th>
-                    <th class="text-center" scope="col">Job</th>
+                    <th class="text-center" scope="col">Position</th>
+                    <th class="text-center" scope="col">Email</th>
+                    <th class="text-center" scope="col">Grade</th>
                     <th class="text-center" scope="col">Status</th>
                     @foreach($empdata as $dd)
                     <tr>
                       <td class="text-center">{{ $dd->EmployeeId }}</td>
                       <td class="text-center">{{ $dd->nama }}</td>
-                      <td class="text-center">{{ $dd->alamat }}</td>
+                      <td class="text-center">{{ $dd->posisi }}</td>
+                      <td class="text-center">{{ $dd->email}}</td>
+                      <td class="text-center">{{ $dd->grade}}</td>
                       <td class="text-center">{{ $dd->status }}</td>
                     </tr>
                     @endforeach

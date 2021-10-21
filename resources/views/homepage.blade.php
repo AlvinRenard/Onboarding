@@ -241,6 +241,7 @@
                     <th class="text-center" scope="col">Job</th>
                     <th class="text-center" scope="col">Progress</th>
                     <th class="text-center" scope="col">User Progress</th>
+                    <th class="text-center" scope="col">Status</th>
                     <th class="text-center" scope="col">Notify Employee</th>
                     <th class="text-center" scope="col">Notify Remuneration</th>
                     @foreach($user1 as $s1)
@@ -251,54 +252,68 @@
                       <td class="text-center">
                         <ul class="progressbar">
                           @if ($s1 -> progress -> progress == "1")
-                          <li class="active">Submit CV Document</br>
+                          <li class="active">CV Doc</br>
                             <a href="{{ '/downloadcv/'.$s1->id }}">Download</a>
                           </li>
-                          <li>Submit FPK Document</li>
-                          <li>Submit Ijazah Document</li>
-                          <li>Submit Photo</li>
+                          <li>FPK Doc</li>
+                          <li>Ijazah Doc</li>
+                          <li>Photo</li>
                           @elseif ($s1 -> progress -> progress == "2")
-                          <li class="active">Submit CV Document</br>
+                          <li class="active"> CV Doc</br>
                             <a href="{{ '/downloadcv/'.$s1->id }}">Download</a>
                           </li>
-                          <li class="active">Submit FPK Document</br>
+                          <li class="active">FPK Doc</br>
                             <a href="{{ '/downloadfpk/'.$s1->id }}">Download</a>
                           </li>
-                          <li>Submit Ijazah Document</li>
-                          <li>Submit Photo</li>
+                          <li>Ijazah Doc</li>
+                          <li>Photo Doc</li>
                           @elseif ($s1 -> progress -> progress == "3")
-                          <li class="active">Submit CV Document</br>
+                          <li class="active">CV Doc</br>
                             <a href="{{ '/downloadcv/'.$s1->id }}">Download</a>
                           </li>
-                          <li class="active">Submit FPK Document</br>
+                          <li class="active">FPK Doc</br>
                             <a href="{{ '/downloadfpk/'.$s1->id }}">Download</a>
                           </li>
-                          <li class="active">Submit Ijazah Document</br>
+                          <li class="active">Ijazah Doc</br>
                             <a href="{{ '/downloadijazah/'.$s1->id }}">Download</a>
                           </li>
-                          <li>Submit Photo</li>
+                          <li>Photo Doc</li>
                           @elseif ($s1 -> progress -> progress == "4")
-                          <li class="active">Submit CV Document</br>
+                          <li class="active">CV Doc</br>
                             <a href="{{ '/downloadcv/'.$s1->id }}">Download</a>
                           </li>
-                          <li class="active">Submit FPK Document</br>
+                          <li class="active">FPK Doc</br>
                             <a href="{{ '/downloadfpk/'.$s1->id }}">Download</a>
                           </li>
-                          <li class="active">Submit Ijazah Document</br>
+                          <li class="active">Ijazah Doc</br>
                             <a href="{{ '/downloadijazah/'.$s1->id }}">Download</a>
                           </li>
-                          <li class="active">Submit Photo</br>
+                          <li class="active">Photo</br>
+                            <a href="{{ '/downloadphoto/'.$s1->id }}">Download</a>
+                          </li>
+                          @elseif ($s1 -> progress -> progress == "5")
+                          <li class="active">CV Doc</br>
+                            <a href="{{ '/downloadcv/'.$s1->id }}">Download</a>
+                          </li>
+                          <li class="active">FPK Doc</br>
+                            <a href="{{ '/downloadfpk/'.$s1->id }}">Download</a>
+                          </li>
+                          <li class="active">Ijazah Doc</br>
+                            <a href="{{ '/downloadijazah/'.$s1->id }}">Download</a>
+                          </li>
+                          <li class="active">Photo</br>
                             <a href="{{ '/downloadphoto/'.$s1->id }}">Download</a>
                           </li>
                           @elseif ($s1 -> progress -> progress == "0")
-                          <li>Submit CV Document</li>
-                          <li>Submit FPK Document</li>
-                          <li>Submit Ijazah Document</li>
-                          <li>Submit Photo</li>
+                          <li>CV Doc</li>
+                          <li>FPK Doc</li>
+                          <li>Ijazah Doc</li>
+                          <li>Photo</li>
                           @endif
                       </td>
                       <td class="text-center">
                         <a href="{{ '/onboarding/'.$s1->id.'/'.$s1->token }}"> See details</a>
+                        <td class="text-center">{{ $s1->status }}</td>
 
                         <!-- <a href="{{ '/download/'.$s1->id }}">detail</a> -->
                       </td>
@@ -322,6 +337,7 @@
                     <th class="text-center" scope="col">Job</th>
                     <th class="text-center" scope="col">Progress</th>
                     <th class="text-center" scope="col">User Progress</th>
+                    <th class="text-center" scope="col">Status</th>
                     <th class="text-center" scope="col">Notify Employee</th>
                     <th class="text-center" scope="col">Notify Remuneration</th>
                     @foreach($user2 as $s2)
@@ -332,52 +348,66 @@
                       <td class="text-center">
                         <ul class="progressbar">
                           @if ($s2 -> progress -> progress == "1")
-                          <li class="active">Submit CV Document</br>
+                          <li class="active">CV Doc</br>
                             <a href="{{ '/downloadcv/'.$s2->id }}">Download</a>
                           </li>
-                          <li>Submit FPK Document</li>
-                          <li>Submit Ijazah Document</li>
-                          <li>Submit Photo</li>
+                          <li>FPK Doc</li>
+                          <li>Ijazah Doc</li>
+                          <li>Photo</li>
                           @elseif ($s2 -> progress -> progress == "2")
-                          <li class="active">Submit CV Document</br>
+                          <li class="active">CV Doc</br>
                             <a href="{{ '/downloadcv/'.$s2->id }}">Download</a>
                           </li>
-                          <li class="active">Submit FPK Document</br>
+                          <li class="active">FPK Doc</br>
                             <a href="{{ '/downloadfpk/'.$s2->id }}">Download</a>
                           </li>
-                          <li>Submit Ijazah Document</li>
-                          <li>Submit Photo</li>
+                          <li>Ijazah Doc</li>
+                          <li>Photo</li>
                           @elseif ($s2 -> progress -> progress == "3")
-                          <li class="active">Submit CV Document</br>
+                          <li class="active">CV Doc</br>
                             <a href="{{ '/downloadcv/'.$s2->id }}">Download</a>
                           </li>
-                          <li class="active">Submit FPK Document</br>
+                          <li class="active">FPK Doc</br>
                             <a href="{{ '/downloadfpk/'.$s2->id }}">Download</a>
                           </li>
-                          <li class="active">Submit Ijazah Document</br>
+                          <li class="active">Ijazah Doc</br>
                             <a href="{{ '/downloadijazah/'.$s2->id }}">Download</a>
                           </li>
-                          <li>Submit Photo</li>
+                          <li>Photo</li>
                           @elseif ($s2 -> progress -> progress == "4")
-                          <li class="active">Submit CV Document</br>
+                          <li class="active">CV Doc</br>
                             <a href="{{ '/downloadcv/'.$s2->id }}">Download</a>
                           </li>
-                          <li class="active">Submit FPK Document</br>
+                          <li class="active">FPK Doc</br>
                             <a href="{{ '/downloadfpk/'.$s2->id }}">Download</a>
                           </li>
-                          <li class="active">Submit Ijazah Document</br>
+                          <li class="active">Ijazah Doc</br>
                             <a href="{{ '/downloadijazah/'.$s2->id }}">Download</a>
                           </li>
-                          <li class="active">Submit Photo</br>
+                          <li class="active">Photo</br>
+                            <a href="{{ '/downloadphoto/'.$s2->id }}">Download</a>
+                          </li>
+                          @elseif ($s2 -> progress -> progress == "5")
+                          <li class="active">CV Doc</br>
+                            <a href="{{ '/downloadcv/'.$s2->id }}">Download</a>
+                          </li>
+                          <li class="active">FPK Doc</br>
+                            <a href="{{ '/downloadfpk/'.$s2->id }}">Download</a>
+                          </li>
+                          <li class="active">Ijazah Doc</br>
+                            <a href="{{ '/downloadijazah/'.$s2->id }}">Download</a>
+                          </li>
+                          <li class="active">Photo</br>
                             <a href="{{ '/downloadphoto/'.$s2->id }}">Download</a>
                           </li>
                           @else
-                          <li>Submit CV Document</li>
-                          <li>Submit FPK Document</li>
-                          <li>Submit Ijazah Document</li>
-                          <li>Submit Photo</li>
+                          <li>CV Doc</li>
+                          <li>FPK Doc</li>
+                          <li>Ijazah Doc</li>
+                          <li>Photo</li>
                           @endif
                       </td>
+                      <td class="text-center">{{ $s2->status }}</td>
                       <td class="text-center">
                         <a href="{{ '/onboarding/'.$s2->id.'/'.$s2->token }}"> See details</a>
                       </td>

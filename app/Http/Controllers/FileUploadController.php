@@ -112,4 +112,10 @@ class FileUploadController extends Controller
         $employee->push();
         return redirect('/onboarding/'.$data['employee']->id.'/'.$data['employee']->token);
     }
+    public function final($id){
+        $employee = Employee::find($id);
+        $employee->progress->progress = '5';
+        $employee->status = 'complete';
+        $employee->push();
+    }
 }

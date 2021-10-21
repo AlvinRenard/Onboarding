@@ -31,6 +31,7 @@ Route::post('/home/dbinput', 'App\Http\Controllers\InterviewControl@store');
 Route::get('/success', 'App\Http\Controllers\InterviewControl@success');
 Route::get('/login', 'App\Http\Controllers\UserController@loginindex');
 Route::get('/userlanding/{id}', 'App\Http\Controllers\UserController@userlanding');
+Route::get('/final/{id}', 'App\Http\Controllers\FileUploadController@final');
 Route::get('/Remuneration/{id}', 'App\Http\Controllers\UserController@remuneration');
 Route::post('/loginPost', 'App\Http\Controllers\UserController@loginPost');
 Route::get('/register', 'App\Http\Controllers\UserController@register');

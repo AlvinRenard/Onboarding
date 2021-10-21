@@ -38,7 +38,7 @@
                     </div>
                     <div class="col-lg-8 align-self-baseline">
                         <p class="text-white-75 mb-5">Please check your inbox for the next process. </p>
-                        <a href="{{ '/home' }}">Return to Homepage</a>
+                        <a href="{{'/final/'.$data['employee']->id}}">Confirm Submission</a>
                     </div>
                 </div>
             </div>

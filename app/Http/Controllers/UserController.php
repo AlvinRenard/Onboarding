@@ -137,7 +137,8 @@ class UserController extends Controller
         $rem =  new Remuneration();
         $rem->EmployeeId = $data['employee']->id;
         $rem->nama = $data['employee']->nama;
-        $rem->alamat = $data['employee']->alamat;
+        $rem->posisi = $data['employee']->posisi;
+        $rem->email = $data['employee']->email;
         $rem->grade = $data['employee']->grade;
         $rem->status = "accepted";
         $rem->save();
