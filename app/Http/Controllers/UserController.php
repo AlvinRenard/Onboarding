@@ -22,10 +22,12 @@ class UserController extends Controller
             $progress= Employee::with('progress')->get();
             $user1 = Employee::with('progress')
                         ->whereBetween('grade', [0,1])
-                        ->get();
+                        ->orderBy('id', 'DESC')
+                        ->paginate(9);
             $user2 = Employee::with('progress')
                         ->whereBetween('grade', [0,3])
-                        ->get();
+                        ->orderBy('id', 'DESC')
+                        ->paginate(9);
             $employees = DB::table('employees')->get();
             $pegawai = DB::table('employees')->paginate(10);
             return view('homepage')->with('employees', $employees)->with('pegawai', $pegawai)->with('progress',$progress)->with('user',$user)->with('user1',$user1)->with('user2',$user2);
@@ -143,5 +145,21 @@ class UserController extends Controller
         $rem->status = "accepted";
         $rem->save();
         return redirect('/home');
+    }
+    public function kode(Request $request,$id){
+        $kode = Employee::find($id);
+        $kode->remuneration->kode = $request->kode;
+        $kode->kode = $request->kode;
+        $kode->push();
+        return $kode;
+    }
+    public function showOd($id,$token=null){
+        $progress= Employee::with('progress')->get();
+        $data['employee']= Employee::with('progress')->find($id);
+        if ($data['employee']->token!=$token) {
+            $data['message'] = "Token not match";
+            $data['employee'] = null;
+        }
+        return view('teamOd')->with('data', $data)->with('progress',$progress);
     }
 }

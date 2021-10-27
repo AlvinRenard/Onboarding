@@ -9,7 +9,12 @@
   
   <link rel="stylesheet" type="text/css" href="{{ asset('dist/css/table.css') }}">
 
-  
+  <script>
+function myFunction() {
+   var element = document.getElementById("myDIV");
+   element.classList.toggle("mystyle");
+}
+</script>
 </head>
 
 <body>
@@ -27,6 +32,7 @@ All Set! Ready to be reviewed
       <th class="text-center" scope="col">Name</th>
       <th class="text-center" scope="col">Address</th>
       <th class="text-center" scope="col">Details</th>
+      <th class="text-center" scope="col">Position Code</th>
       <th class="text-center" scope="col">Action</th>
       </tr>
     </thead>
@@ -46,12 +52,21 @@ All Set! Ready to be reviewed
         {{ $data['employee']->nama }}
         </td>
         <td data-title='E-mail'>
-        {{ $data['employee']->alamat }}
+        {{ $data['employee']->email }}
         </td>
         <td class='select'>
           <a class='button' href='#'>
             Select
           </a>
+        </td>
+        <td class='select'>
+        <a href="{{ '/sendemailod/'.$data['employee']->id.'/'.$data['employee']->token}}">Send Email</a>
+  <!-- <form action="{{ '/kodeposisi/'.$data['employee']->id }}" method="post">
+  {{ csrf_field() }}
+    <input type="text"  placeholder=" {{ $data['employee']->nama }} " id="kode" name="kode">
+    <input type="hidden" name="id" value="{{$data['employee']->id}}">
+    <input type="submit" value="Submit">
+  </form> -->
         </td>
         <td class='action'>
           <a href="{{ '/accept/'.$data['employee']->id }}">

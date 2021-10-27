@@ -121,6 +121,12 @@
                 <p>Ticket Status</p>
               </a>
             </li>
+            <li class="nav-item">
+              <a href="/ticket" class="nav-link">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>Final Process</p>
+              </a>
+            </li>
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -219,16 +225,6 @@
                 <i class="ion ion-clipboard mr-1"></i>
                 Employee Onboarding Ticket
               </h3>
-
-              <div class="card-tools">
-                <ul class="pagination pagination-sm">
-                  <li class="page-item"><a href="#" class="page-link">&laquo;</a></li>
-                  <li class="page-item"><a href="#" class="page-link">1</a></li>
-                  <li class="page-item"><a href="#" class="page-link">2</a></li>
-                  <li class="page-item"><a href="#" class="page-link">3</a></li>
-                  <li class="page-item"><a href="#" class="page-link">&raquo;</a></li>
-                </ul>
-              </div>
             </div>
             <!-- /.card-header -->
             <div class="card">
@@ -242,6 +238,7 @@
                     <th class="text-center" scope="col">Progress</th>
                     <th class="text-center" scope="col">User Progress</th>
                     <th class="text-center" scope="col">Status</th>
+                    <th class="text-center" scope="col">Employee Details</th>
                     <th class="text-center" scope="col">Notify Employee</th>
                     <th class="text-center" scope="col">Notify Remuneration</th>
                     @foreach($user1 as $s1)
@@ -336,8 +333,8 @@
                     <th class="text-center" scope="col">First name</th>
                     <th class="text-center" scope="col">Job</th>
                     <th class="text-center" scope="col">Progress</th>
-                    <th class="text-center" scope="col">User Progress</th>
                     <th class="text-center" scope="col">Status</th>
+                    <th class="text-center" scope="col">Employee Details</th>
                     <th class="text-center" scope="col">Notify Employee</th>
                     <th class="text-center" scope="col">Notify Remuneration</th>
                     @foreach($user2 as $s2)
@@ -354,6 +351,13 @@
                           <li>FPK Doc</li>
                           <li>Ijazah Doc</li>
                           <li>Photo</li>
+                          <td class="text-center">{{ $s2->status }}</td>
+                      <td class="text-center">
+                        <a href="{{ '/empemail/'.$s2->id.'/'.$s2->token }}">Send Email</a>
+                      </td>
+                      <td class="text-center">
+                       <a> Send Email </a>
+                      </td>
                           @elseif ($s2 -> progress -> progress == "2")
                           <li class="active">CV Doc</br>
                             <a href="{{ '/downloadcv/'.$s2->id }}">Download</a>
@@ -363,6 +367,13 @@
                           </li>
                           <li>Ijazah Doc</li>
                           <li>Photo</li>
+                          <td class="text-center">{{ $s2->status }}</td>
+                      <td class="text-center">
+                        <a href="{{ '/empemail/'.$s2->id.'/'.$s2->token }}">Send Email</a>
+                      </td>
+                      <td class="text-center">
+                      <a> Send Email </a>
+                      </td>
                           @elseif ($s2 -> progress -> progress == "3")
                           <li class="active">CV Doc</br>
                             <a href="{{ '/downloadcv/'.$s2->id }}">Download</a>
@@ -374,6 +385,13 @@
                             <a href="{{ '/downloadijazah/'.$s2->id }}">Download</a>
                           </li>
                           <li>Photo</li>
+                          <td class="text-center">{{ $s2->status }}</td>
+                      <td class="text-center">
+                        <a href="{{ '/empemail/'.$s2->id.'/'.$s2->token }}">Send Email</a>
+                      </td>
+                      <td class="text-center">
+                      <a> Send Email </a>
+                      </td>
                           @elseif ($s2 -> progress -> progress == "4")
                           <li class="active">CV Doc</br>
                             <a href="{{ '/downloadcv/'.$s2->id }}">Download</a>
@@ -387,6 +405,13 @@
                           <li class="active">Photo</br>
                             <a href="{{ '/downloadphoto/'.$s2->id }}">Download</a>
                           </li>
+                          <td class="text-center">{{ $s2->status }}</td>
+                      <td class="text-center">
+                        <a href="{{ '/empemail/'.$s2->id.'/'.$s2->token }}">Send Email</a>
+                      </td>
+                      <td class="text-center">
+                      <a> Send Email </a>
+                      </td>
                           @elseif ($s2 -> progress -> progress == "5")
                           <li class="active">CV Doc</br>
                             <a href="{{ '/downloadcv/'.$s2->id }}">Download</a>
@@ -400,22 +425,26 @@
                           <li class="active">Photo</br>
                             <a href="{{ '/downloadphoto/'.$s2->id }}">Download</a>
                           </li>
-                          @else
-                          <li>CV Doc</li>
-                          <li>FPK Doc</li>
-                          <li>Ijazah Doc</li>
-                          <li>Photo</li>
-                          @endif
-                      </td>
-                      <td class="text-center">{{ $s2->status }}</td>
-                      <td class="text-center">
-                        <a href="{{ '/onboarding/'.$s2->id.'/'.$s2->token }}"> See details</a>
-                      </td>
+                                                <td class="text-center">{{ $s2->status }}</td>
                       <td class="text-center">
                         <a href="{{ '/empemail/'.$s2->id.'/'.$s2->token }}">Send Email</a>
                       </td>
                       <td class="text-center">
                         <a href="{{ '/sendemail/'.$s2->id}}">Send Email</a>
+                      </td>
+                          @else
+                          <li>CV Doc</li>
+                          <li>FPK Doc</li>
+                          <li>Ijazah Doc</li>
+                          <li>Photo</li>
+                          <td class="text-center">{{ $s2->status }}</td>
+                      <td class="text-center">
+                        <a href="{{ '/empemail/'.$s2->id.'/'.$s2->token }}">Send Email</a>
+                      </td>
+                      <td class="text-center">
+                      <a> Send Email </a>
+                      </td>
+                          @endif
                       </td>
                     </tr>
                     @endforeach
@@ -424,11 +453,6 @@
                 {{ $pegawai->links() }}
               </div>
               @endif
-              <!-- /.card-body -->
-      </section>
-      <!-- /.Left col -->
-      <!-- right col (We are only adding the ID to make the widgets sortable)-->
-      <section class="col-lg-5 connectedSortable">
     </div>
     <footer class="main-footer">
       <strong>Copyright &copy; Alvin renard</a>.</strong>
@@ -454,26 +478,6 @@
   <script>
     $.widget.bridge('uibutton', $.ui.button)
   </script>
-  <!-- Bootstrap 4 -->
-  <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- ChartJS -->
-  <script src="plugins/chart.js/Chart.min.js"></script>
-  <!-- Sparkline -->
-  <script src="plugins/sparklines/sparkline.js"></script>
-  <!-- JQVMap -->
-  <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
-  <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-  <!-- jQuery Knob Chart -->
-  <script src="plugins/jquery-knob/jquery.knob.min.js"></script>
-  <!-- daterangepicker -->
-  <script src="plugins/moment/moment.min.js"></script>
-  <script src="plugins/daterangepicker/daterangepicker.js"></script>
-  <!-- Tempusdominus Bootstrap 4 -->
-  <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-  <!-- Summernote -->
-  <script src="plugins/summernote/summernote-bs4.min.js"></script>
-  <!-- overlayScrollbars -->
-  <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
   <!-- AdminLTE App -->
   <script src="dist/js/adminlte.js"></script>
   <!-- AdminLTE for demo purposes -->

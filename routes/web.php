@@ -41,6 +41,7 @@ Route::get('/databaseview', 'App\Http\Controllers\UserController@index');
 Route::get('admin/login', 'Auth\AdminAuthController@getLogin')->name('admin.login');
 Route::post('admin/login', 'Auth\AdminAuthController@postLogin');
 Route::get('/onboarding/{id}/{token?}', 'App\Http\Controllers\UserController@show');
+Route::get('/teamod/{id}/{token?}', 'App\Http\Controllers\UserController@showOd');
 Route::get('/downloadfpk/{id}', 'App\Http\Controllers\DownloadController@downloadfpk');
 Route::get('/downloadijazah/{id}', 'App\Http\Controllers\DownloadController@downloadijazah');
 Route::get('/downloadcv/{id}', 'App\Http\Controllers\DownloadController@downloadcv');
@@ -50,9 +51,11 @@ Route::post('/uploaddatabase2/{id}/{token?}', 'App\Http\Controllers\FileUploadCo
 Route::post('/uploaddatabase3/{id}/{token?}', 'App\Http\Controllers\FileUploadController@fileStoreijazah');
 Route::post('/uploaddatabase4/{id}/{token?}', 'App\Http\Controllers\FileUploadController@fileStorephoto');
 Route::get('/sendemail/{id}','App\Http\Controllers\EmailController@index');
+Route::get('/sendemailod/{id}/{token?}','App\Http\Controllers\EmailController@odemail');
 Route::get('/empemail/{id}/{token?}','App\Http\Controllers\EmailController@empemail');
 Route::get('/accept/{id}', 'App\Http\Controllers\UserController@accept');
 Route::get('/reject/{id}', 'App\Http\Controllers\UserController@reject');
+Route::post('/kodeposisi/{id}', 'App\Http\Controllers\UserController@kode');
 Route::middleware('auth:admin')->group(function(){
     // Tulis routemu di sini.
   });

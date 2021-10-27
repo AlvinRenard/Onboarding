@@ -237,6 +237,7 @@
                     <th class="text-center" scope="col">Position</th>
                     <th class="text-center" scope="col">Email</th>
                     <th class="text-center" scope="col">Grade</th>
+                    <th class="text-center" scope="col">Kode</th>
                     <th class="text-center" scope="col">Status</th>
                     @foreach($empdata as $dd)
                     <tr>
@@ -245,6 +246,7 @@
                       <td class="text-center">{{ $dd->posisi }}</td>
                       <td class="text-center">{{ $dd->email}}</td>
                       <td class="text-center">{{ $dd->grade}}</td>
+                      <td class="text-center">{{ $dd->kode}}</td>
                       <td class="text-center">{{ $dd->status }}</td>
                     </tr>
                     @endforeach
