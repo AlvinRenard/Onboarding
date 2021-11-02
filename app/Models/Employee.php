@@ -21,4 +21,8 @@ class Employee extends Model
     {
     	return $this->hasOne('App\Models\Remuneration',"EmployeeId");
     }
+    public function odemployee()
+    {
+    	return $this->hasOne('App\Models\od',"EmployeeId");
+    }
 }

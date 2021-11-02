@@ -17,9 +17,11 @@ class CreateEmployeesTable extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table ->bigIncrements('id');
 			$table -> string('nama');
-			$table -> string('alamat');
-            $table -> string('grade');
+			$table -> string('posisi');
+            $table -> string('email');
             $table -> string('status');
+            $table -> string('kode');
+            $table -> string('grade');
 			$table -> timestamps();
         });
     }

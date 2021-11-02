@@ -16,9 +16,10 @@ class EmployeeEmail extends Mailable
      *
      * @return void
      */
-    public function __construct($id)
+    public function __construct($id,$token)
     {
         $this->id  =  $id;
+        $this->token  =  $token;
     }
 
     /**
@@ -33,6 +34,7 @@ class EmployeeEmail extends Mailable
                    ->with(
                     [
                         'id' => $this->id,
+                        'token' => $this->token,
                     ]);
     }
 }

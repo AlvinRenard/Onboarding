@@ -143,7 +143,7 @@
             <div class="col-sm-6">
               <h1 class="m-0">Dashboard</h1>
             </div>
-    <div class="col-sm-6">
+            <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item active">HR Dashboard</li>
@@ -310,9 +310,9 @@
                       </td>
                       <td class="text-center">
                         <a href="{{ '/onboarding/'.$s1->id.'/'.$s1->token }}"> See details</a>
-                        <td class="text-center">{{ $s1->status }}</td>
+                      <td class="text-center">{{ $s1->status }}</td>
 
-                        <!-- <a href="{{ '/download/'.$s1->id }}">detail</a> -->
+                      <!-- <a href="{{ '/download/'.$s1->id }}">detail</a> -->
                       </td>
                       <td>
                         <a href="{{ '/sendemail/'.$s1->id}}">See details</a>
@@ -351,100 +351,119 @@
                           <li>FPK Doc</li>
                           <li>Ijazah Doc</li>
                           <li>Photo</li>
-                          <td class="text-center">{{ $s2->status }}</td>
+                      <td class="text-center">{{ $s2->status }}</td>
+                      <td class="text-center">
+                      <td class="text-center">
+                        <a href="{{ '/empdetails/'.$s2->id.'/'.$s2->token }}">See Details</a>
+                      </td>
                       <td class="text-center">
                         <a href="{{ '/empemail/'.$s2->id.'/'.$s2->token }}">Send Email</a>
                       </td>
                       <td class="text-center">
-                       <a> Send Email </a>
+                        <a> Send Email </a>
                       </td>
-                          @elseif ($s2 -> progress -> progress == "2")
-                          <li class="active">CV Doc</br>
-                            <a href="{{ '/downloadcv/'.$s2->id }}">Download</a>
-                          </li>
-                          <li class="active">FPK Doc</br>
-                            <a href="{{ '/downloadfpk/'.$s2->id }}">Download</a>
-                          </li>
-                          <li>Ijazah Doc</li>
-                          <li>Photo</li>
-                          <td class="text-center">{{ $s2->status }}</td>
+                      @elseif ($s2 -> progress -> progress == "2")
+                      <li class="active">CV Doc</br>
+                        <a href="{{ '/downloadcv/'.$s2->id }}">Download</a>
+                      </li>
+                      <li class="active">FPK Doc</br>
+                        <a href="{{ '/downloadfpk/'.$s2->id }}">Download</a>
+                      </li>
+                      <li>Ijazah Doc</li>
+                      <li>Photo</li>
+                      <td class="text-center">{{ $s2->status }}</td>
+                      <td class="text-center">
+                        <a href="{{ '/empdetails/'.$s2->id.'/'.$s2->token }}">See Details</a>
+                      </td>
                       <td class="text-center">
                         <a href="{{ '/empemail/'.$s2->id.'/'.$s2->token }}">Send Email</a>
                       </td>
                       <td class="text-center">
-                      <a> Send Email </a>
+                        <a> Send Email </a>
                       </td>
-                          @elseif ($s2 -> progress -> progress == "3")
-                          <li class="active">CV Doc</br>
-                            <a href="{{ '/downloadcv/'.$s2->id }}">Download</a>
-                          </li>
-                          <li class="active">FPK Doc</br>
-                            <a href="{{ '/downloadfpk/'.$s2->id }}">Download</a>
-                          </li>
-                          <li class="active">Ijazah Doc</br>
-                            <a href="{{ '/downloadijazah/'.$s2->id }}">Download</a>
-                          </li>
-                          <li>Photo</li>
-                          <td class="text-center">{{ $s2->status }}</td>
+                      @elseif ($s2 -> progress -> progress == "3")
+                      <li class="active">CV Doc</br>
+                        <a href="{{ '/downloadcv/'.$s2->id }}">Download</a>
+                      </li>
+                      <li class="active">FPK Doc</br>
+                        <a href="{{ '/downloadfpk/'.$s2->id }}">Download</a>
+                      </li>
+                      <li class="active">Ijazah Doc</br>
+                        <a href="{{ '/downloadijazah/'.$s2->id }}">Download</a>
+                      </li>
+                      <li>Photo</li>
+                      <td class="text-center">{{ $s2->status }}</td>
+                      <td class="text-center">
+                        <a href="{{ '/empdetails/'.$s2->id.'/'.$s2->token }}">See Details</a>
+                      </td>
                       <td class="text-center">
                         <a href="{{ '/empemail/'.$s2->id.'/'.$s2->token }}">Send Email</a>
                       </td>
                       <td class="text-center">
-                      <a> Send Email </a>
+                        <a> Send Email </a>
                       </td>
-                          @elseif ($s2 -> progress -> progress == "4")
-                          <li class="active">CV Doc</br>
-                            <a href="{{ '/downloadcv/'.$s2->id }}">Download</a>
-                          </li>
-                          <li class="active">FPK Doc</br>
-                            <a href="{{ '/downloadfpk/'.$s2->id }}">Download</a>
-                          </li>
-                          <li class="active">Ijazah Doc</br>
-                            <a href="{{ '/downloadijazah/'.$s2->id }}">Download</a>
-                          </li>
-                          <li class="active">Photo</br>
-                            <a href="{{ '/downloadphoto/'.$s2->id }}">Download</a>
-                          </li>
-                          <td class="text-center">{{ $s2->status }}</td>
+                      @elseif ($s2 -> progress -> progress == "4")
+                      <li class="active">CV Doc</br>
+                        <a href="{{ '/downloadcv/'.$s2->id }}">Download</a>
+                      </li>
+                      <li class="active">FPK Doc</br>
+                        <a href="{{ '/downloadfpk/'.$s2->id }}">Download</a>
+                      </li>
+                      <li class="active">Ijazah Doc</br>
+                        <a href="{{ '/downloadijazah/'.$s2->id }}">Download</a>
+                      </li>
+                      <li class="active">Photo</br>
+                        <a href="{{ '/downloadphoto/'.$s2->id }}">Download</a>
+                      </li>
+                      <td class="text-center">{{ $s2->status }}</td>
+                      <td class="text-center">
+                        <a href="{{ '/empdetails/'.$s2->id.'/'.$s2->token }}">See Details</a>
+                      </td>
                       <td class="text-center">
                         <a href="{{ '/empemail/'.$s2->id.'/'.$s2->token }}">Send Email</a>
                       </td>
                       <td class="text-center">
-                      <a> Send Email </a>
+                        <a> Send Email </a>
                       </td>
-                          @elseif ($s2 -> progress -> progress == "5")
-                          <li class="active">CV Doc</br>
-                            <a href="{{ '/downloadcv/'.$s2->id }}">Download</a>
-                          </li>
-                          <li class="active">FPK Doc</br>
-                            <a href="{{ '/downloadfpk/'.$s2->id }}">Download</a>
-                          </li>
-                          <li class="active">Ijazah Doc</br>
-                            <a href="{{ '/downloadijazah/'.$s2->id }}">Download</a>
-                          </li>
-                          <li class="active">Photo</br>
-                            <a href="{{ '/downloadphoto/'.$s2->id }}">Download</a>
-                          </li>
-                                                <td class="text-center">{{ $s2->status }}</td>
+                      @elseif ($s2 -> progress -> progress == "5")
+                      <li class="active">CV Doc</br>
+                        <a href="{{ '/downloadcv/'.$s2->id }}">Download</a>
+                      </li>
+                      <li class="active">FPK Doc</br>
+                        <a href="{{ '/downloadfpk/'.$s2->id }}">Download</a>
+                      </li>
+                      <li class="active">Ijazah Doc</br>
+                        <a href="{{ '/downloadijazah/'.$s2->id }}">Download</a>
+                      </li>
+                      <li class="active">Photo</br>
+                        <a href="{{ '/downloadphoto/'.$s2->id }}">Download</a>
+                      </li>
+                      <td class="text-center">{{ $s2->status }}</td>
+                      <td class="text-center">
+                        <a href="{{ '/empdetails/'.$s2->id.'/'.$s2->token }}">See Details</a>
+                      </td>
+                      <td class="text-center">
+                        <a> Send Email</a>
+                      </td>
+                      <td class="text-center">
+                        <a href="{{ '/sendemail/'.$s2->id.'/'.$s2->token }}">Send Email</a>
+                      </td>
+                      @else
+                      <li>CV Doc</li>
+                      <li>FPK Doc</li>
+                      <li>Ijazah Doc</li>
+                      <li>Photo</li>
+                      <td class="text-center">{{ $s2->status }}</td>
+                      <td class="text-center">
+                        <a href="{{ '/empdetails/'.$s2->id.'/'.$s2->token }}">See Details</a>
+                      </td>
                       <td class="text-center">
                         <a href="{{ '/empemail/'.$s2->id.'/'.$s2->token }}">Send Email</a>
                       </td>
                       <td class="text-center">
-                        <a href="{{ '/sendemail/'.$s2->id}}">Send Email</a>
+                        <a> Send Email </a>
                       </td>
-                          @else
-                          <li>CV Doc</li>
-                          <li>FPK Doc</li>
-                          <li>Ijazah Doc</li>
-                          <li>Photo</li>
-                          <td class="text-center">{{ $s2->status }}</td>
-                      <td class="text-center">
-                        <a href="{{ '/empemail/'.$s2->id.'/'.$s2->token }}">Send Email</a>
-                      </td>
-                      <td class="text-center">
-                      <a> Send Email </a>
-                      </td>
-                          @endif
+                      @endif
                       </td>
                     </tr>
                     @endforeach
@@ -453,6 +472,9 @@
                 {{ $pegawai->links() }}
               </div>
               @endif
+            </div>
+</sectioN>
+            <section class="col-lg-5 connectedSortable">
     </div>
     <footer class="main-footer">
       <strong>Copyright &copy; Alvin renard</a>.</strong>
@@ -462,28 +484,28 @@
       </div>
     </footer>
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-      <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
-  </div>
-  <!-- ./wrapper -->
+            <!-- Control Sidebar -->
+            <aside class="control-sidebar control-sidebar-dark">
+              <!-- Control sidebar content goes here -->
+            </aside>
+            <!-- /.control-sidebar -->
+          </div>
+          <!-- ./wrapper -->
 
-  <!-- jQuery -->
-  <script src="plugins/jquery/jquery.min.js"></script>
-  <!-- jQuery UI 1.11.4 -->
-  <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
-  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-  <script>
-    $.widget.bridge('uibutton', $.ui.button)
-  </script>
-  <!-- AdminLTE App -->
-  <script src="dist/js/adminlte.js"></script>
-  <!-- AdminLTE for demo purposes -->
-  <script src="dist/js/demo.js"></script>
-  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-  <script src="dist/js/pages/dashboard.js"></script>
+          <!-- jQuery -->
+          <script src="plugins/jquery/jquery.min.js"></script>
+          <!-- jQuery UI 1.11.4 -->
+          <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+          <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+          <script>
+            $.widget.bridge('uibutton', $.ui.button)
+          </script>
+          <!-- AdminLTE App -->
+          <script src="dist/js/adminlte.js"></script>
+          <!-- AdminLTE for demo purposes -->
+          <script src="dist/js/demo.js"></script>
+          <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+          <script src="dist/js/pages/dashboard.js"></script>
 </body>
 
 </html>

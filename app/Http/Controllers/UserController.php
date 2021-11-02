@@ -4,12 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Employee;
+use App\Models\Progress;
+use App\Models\od;
+use App\Models\Fileupload;
+use App\Exceptions\Handler;
 use App\Models\Remuneration;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Str;
+use Illuminate\Support\Arr;
+use PDF;
 class UserController extends Controller
 {
     //
@@ -46,6 +53,9 @@ class UserController extends Controller
     }
     public function dataexist(){
         return view('dataexist');
+    }
+    public function nokodeposisi(){
+        return view('nokodeposisi');
     }
     public function userlanding($id){
         $data['employee']= Employee::with('progress')->find($id);
@@ -120,7 +130,7 @@ class UserController extends Controller
         else{
             $user = $employees = DB::table('users')->get()->sortBy('nama');;
             $progress= Employee::with('progress')->get();
-            $empdata = DB::table('remuneration')->get();
+            $empdata = Employee::with('remuneration')->get();
             $employees = DB::table('employees')->get();
             $pegawai = DB::table('employees')->paginate(10);
             return view('ticket')->with('employees', $employees)->with('pegawai', $pegawai)->with('progress',$progress)->with('empdata',$empdata);
@@ -129,29 +139,64 @@ class UserController extends Controller
     public function accept($id){
         $data['employee']= Employee::with('progress')->find($id);
         $empid = $data['employee']->id;
-        // return $empid;
-        $dataexist = Remuneration::where('Employeeid',$empid)->get()->pluck('id');
+
+        // $kodeposisi = od::select('kodeposisi')->where('EmployeeId', $data['employee']->id)->get()->pluck('kodeposisi');
+        $dataexist = od::where('Employeeid',$empid)->get()->pluck('id');
         // return $dataexist;
-        if (count($dataexist) > 0){
+        $rem =  new od();
+        $rem->EmployeeId = $data['employee']->id;
+		$rem->kodeposisi = '-';
+        $rem->save();
+        $kodeOd = od::where('EmployeeId', $id)->first();
+        // return $kode->kodeposisi;
+        if ( $kodeOd->kodeposisi == '-'){
+            od::destroy($dataexist);
+            return redirect('/nokodeposisi')->with('alert', 'Data Already Exist!');
+        }
+        // return $kodeposisi;
+       
+
+        // return $empid;
+        $dataexist2 = Remuneration::where('Employeeid',$empid)->get()->pluck('id');
+        // $dataexist2 = od::where('Employeeid',$empid)->whereNotNull('kode')->get()->pluck('kode');
+        // return $dataexist;
+        if (count($dataexist2) > 2){
             echo '<script>alert("Data Already Exist! Returning to homepage")</script>';
             return redirect('/dataexist')->with('alert', 'Data Already Exist!');
         }
+        $kode = Employee::find($id);
+        $kode->kode = $kodeOd->kodeposisi;
+        $kode->status = "accepted";
+        $kode->push();
         $rem =  new Remuneration();
         $rem->EmployeeId = $data['employee']->id;
         $rem->nama = $data['employee']->nama;
         $rem->posisi = $data['employee']->posisi;
         $rem->email = $data['employee']->email;
+        $rem->kode = $kodeOd->kodeposisi;
         $rem->grade = $data['employee']->grade;
         $rem->status = "accepted";
         $rem->save();
         return redirect('/home');
     }
+    public function reject($id){
+        $progress = Employee::find($id);
+        $progress->progress->progress = '0';
+        $progress->token = Str::random(12);
+        $progress->status = 'Not complete';
+        $progress->push();
+        Fileupload::where('EmployeeId', $id)->delete();
+           
+           return redirect('/home');
+    }
     public function kode(Request $request,$id){
-        $kode = Employee::find($id);
-        $kode->remuneration->kode = $request->kode;
-        $kode->kode = $request->kode;
+        $kode = od::where('EmployeeId', $id)->first();
+        // $kode->remuneration->kode = $request->kode;
+        // $kode->kode = $request->kode;
+        $kode->kodeposisi = $request->kode;
         $kode->push();
         return $kode;
+        
     }
     public function showOd($id,$token=null){
         $progress= Employee::with('progress')->get();
@@ -161,5 +206,37 @@ class UserController extends Controller
             $data['employee'] = null;
         }
         return view('teamOd')->with('data', $data)->with('progress',$progress);
+    }
+    public function empdetails($id,$token=null){
+        $progress= Employee::with('progress')->get();
+        $data['employee']= Employee::with('progress')->find($id);
+        if ($data['employee']->token!=$token) {
+            $data['message'] = "Token not match";
+            $data['employee'] = null;
+        }
+        return view('empdetails')->with('data', $data)->with('progress',$progress);
+    }
+    public function certif($id,$token=null)
+    {
+        $progress= Employee::with('progress')->get();
+        $data['employee']= Employee::with('progress')->find($id);
+        if ($data['employee']->token!=$token) {
+            $data['message'] = "Token not match";
+            $data['employee'] = null;
+        }
+    	return view('certif')->with('data', $data);
+    }
+ 
+    public function cetakpdf($id,$token=null)
+    {
+    	$progress= Employee::with('progress')->get();
+        $data['employee']= Employee::with('progress')->find($id);
+        if ($data['employee']->token!=$token) {
+            $data['message'] = "Token not match";
+            $data['employee'] = null;
+        }
+ 
+    	$pdf = PDF::loadview('certifpdf',['data'=>$data]);
+    	return $pdf->download('laporan-pegawai.pdf');
     }
 }

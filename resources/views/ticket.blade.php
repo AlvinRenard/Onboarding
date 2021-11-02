@@ -118,6 +118,12 @@
                 <p>Ticket Status</p>
               </a>
             </li>
+            <li class="nav-item">
+              <a href="/ticket" class="nav-link">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>Final Process</p>
+              </a>
+            </li>
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -239,15 +245,17 @@
                     <th class="text-center" scope="col">Grade</th>
                     <th class="text-center" scope="col">Kode</th>
                     <th class="text-center" scope="col">Status</th>
+                    <th class="text-center" scope="col">Job Contract</th>
                     @foreach($empdata as $dd)
                     <tr>
-                      <td class="text-center">{{ $dd->EmployeeId }}</td>
-                      <td class="text-center">{{ $dd->nama }}</td>
-                      <td class="text-center">{{ $dd->posisi }}</td>
-                      <td class="text-center">{{ $dd->email}}</td>
-                      <td class="text-center">{{ $dd->grade}}</td>
-                      <td class="text-center">{{ $dd->kode}}</td>
-                      <td class="text-center">{{ $dd->status }}</td>
+                      <td class="text-center">{{ $dd->remuneration->EmployeeId }}</td>
+                      <td class="text-center">{{ $dd->remuneration->nama }}</td>
+                      <td class="text-center">{{ $dd->remuneration->posisi }}</td>
+                      <td class="text-center">{{ $dd->remuneration->email}}</td>
+                      <td class="text-center">{{ $dd->remuneration->grade}}</td>
+                      <td class="text-center">{{ $dd->remuneration->kode}}</td>
+                      <td class="text-center">{{ $dd->remuneration->status }}</td>
+                      <td class="text-center"><a href="{{ '/certif/'.$dd->id.'/'.$dd->token }}" class="btn btn-primary" target="_blank">Download</a></td>
                     </tr>
                     @endforeach
                   </thead>

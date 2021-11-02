@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
     return view('welcome');
 });*/
 Route::get('/dataexist', 'App\Http\Controllers\UserController@dataexist');
+Route::get('/nokodeposisi', 'App\Http\Controllers\UserController@nokodeposisi');
 Route::get('process', 'App\Http\Controllers\InterviewControl@process');
 Route::get('/employee/{nama}','App\Http\Controllers\InterviewControl@process');
 Route::get('form','App\Http\Controllers\InterviewControl@form');
@@ -32,7 +33,7 @@ Route::get('/success', 'App\Http\Controllers\InterviewControl@success');
 Route::get('/login', 'App\Http\Controllers\UserController@loginindex');
 Route::get('/userlanding/{id}', 'App\Http\Controllers\UserController@userlanding');
 Route::get('/final/{id}', 'App\Http\Controllers\FileUploadController@final');
-Route::get('/Remuneration/{id}', 'App\Http\Controllers\UserController@remuneration');
+Route::get('/Remuneration/{id}/{token?}', 'App\Http\Controllers\UserController@remuneration');
 Route::post('/loginPost', 'App\Http\Controllers\UserController@loginPost');
 Route::get('/register', 'App\Http\Controllers\UserController@register');
 Route::post('/registerPost', 'App\Http\Controllers\UserController@registerPost');
@@ -50,12 +51,15 @@ Route::post('/uploaddatabase1/{id}/{token?}', 'App\Http\Controllers\FileUploadCo
 Route::post('/uploaddatabase2/{id}/{token?}', 'App\Http\Controllers\FileUploadController@fileStorefpk');
 Route::post('/uploaddatabase3/{id}/{token?}', 'App\Http\Controllers\FileUploadController@fileStoreijazah');
 Route::post('/uploaddatabase4/{id}/{token?}', 'App\Http\Controllers\FileUploadController@fileStorephoto');
-Route::get('/sendemail/{id}','App\Http\Controllers\EmailController@index');
+Route::get('/sendemail/{id}/{token?}','App\Http\Controllers\EmailController@index');
 Route::get('/sendemailod/{id}/{token?}','App\Http\Controllers\EmailController@odemail');
 Route::get('/empemail/{id}/{token?}','App\Http\Controllers\EmailController@empemail');
+Route::get('/empdetails/{id}/{token?}','App\Http\Controllers\UserController@empdetails');
 Route::get('/accept/{id}', 'App\Http\Controllers\UserController@accept');
 Route::get('/reject/{id}', 'App\Http\Controllers\UserController@reject');
 Route::post('/kodeposisi/{id}', 'App\Http\Controllers\UserController@kode');
+Route::get('/certif/{id}/{token?}', 'App\Http\Controllers\UserController@certif');
+Route::get('/certif/cetakpdf/{id}/{token?}', 'App\Http\Controllers\UserController@cetakpdf');
 Route::middleware('auth:admin')->group(function(){
     // Tulis routemu di sini.
   });

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRemunerationTable extends Migration
+class CreateOdTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,11 @@ class CreateRemunerationTable extends Migration
      */
     public function up()
     {
-        Schema::create('remuneration', function (Blueprint $table) {
-            $table ->bigIncrements('id');
+        Schema::create('od', function (Blueprint $table) {
+            $table ->increments('id');
             $table->unsignedBigInteger('EmployeeId');
             $table->foreign('EmployeeId')->references('id')->on('employees');
-			$table ->string('nama');
-			$table ->string('posisi');
-            $table ->string('email');
-            $table ->string('kode');
-            $table ->string('grade');
-            $table ->string('status');
-			$table ->timestamps();
+            $table -> string('kodeposisi');
         });
     }
 
@@ -34,6 +28,6 @@ class CreateRemunerationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('remuneration');
+        Schema::dropIfExists('od');
     }
 }

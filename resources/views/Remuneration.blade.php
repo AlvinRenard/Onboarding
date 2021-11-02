@@ -5,16 +5,71 @@
   <title>Responsive Table + Detail View</title>
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js">
   
   <link rel="stylesheet" type="text/css" href="{{ asset('dist/css/table.css') }}">
-
-  <script>
-function myFunction() {
-   var element = document.getElementById("myDIV");
-   element.classList.toggle("mystyle");
+<style>
+  .button1 {
+	color: #fff !important;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: #60a3bc;
+	padding: 10px;
+	border-radius: 50px;
+	display: inline-block;
+	border: none;
+	transition: all 0.4s ease 0s;
 }
-</script>
+.accept {
+	color: #fff !important;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: green;
+	padding: 10px;
+	border-radius: 50px;
+	display: inline-block;
+	border: none;
+	transition: all 0.4s ease 0s;
+}
+.reject {
+	color: #fff !important;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: red;
+	padding: 10px;
+	border-radius: 50px;
+	display: inline-block;
+	border: none;
+	transition: all 0.4s ease 0s;
+}
+#select{
+  color: #fff !important;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: #60a3bc;
+	padding: 15px;
+	border-radius: 50px;
+	display: inline-block;
+	border: none;
+	transition: all 0.4s ease 0s;
+}
+.button {
+  font-size: 16px;
+}
+td {
+  text-align: center;
+  vertical-align: middle;
+}
+  </style>
 </head>
 
 <body>
@@ -55,12 +110,12 @@ All Set! Ready to be reviewed
         {{ $data['employee']->email }}
         </td>
         <td class='select'>
-          <a class='button' href='#'>
+          <a class='button' id="select" href='#'>
             Select
           </a>
         </td>
         <td class='select'>
-        <a href="{{ '/sendemailod/'.$data['employee']->id.'/'.$data['employee']->token}}">Send Email</a>
+        <a class="button1" href="{{ '/sendemailod/'.$data['employee']->id.'/'.$data['employee']->token}}">Send Email</a>
   <!-- <form action="{{ '/kodeposisi/'.$data['employee']->id }}" method="post">
   {{ csrf_field() }}
     <input type="text"  placeholder=" {{ $data['employee']->nama }} " id="kode" name="kode">
@@ -69,10 +124,11 @@ All Set! Ready to be reviewed
   </form> -->
         </td>
         <td class='action'>
-          <a href="{{ '/accept/'.$data['employee']->id }}">
+
+          <a class="accept" href="{{ '/accept/'.$data['employee']->id }}">
             Accept
           </a>
-          <a href="{{ '/reject/'.$data['employee']->id }}">
+          <a class="reject" href="{{ '/reject/'.$data['employee']->id }}">
             Reject
           </a>
         </td>
