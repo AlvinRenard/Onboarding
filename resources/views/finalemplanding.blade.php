@@ -37,8 +37,7 @@
                         <hr class="divider" />
                     </div>
                     <div class="col-lg-8 align-self-baseline">
-                        <p class="text-white-75 mb-5">Please confirm your submission by clicking button below </p>
-                        <a href="{{'/finalemplanding/'.$data['employee']->id}}">Confirm Submission</a>
+                        <p class="text-white-75 mb-5">Please check your inbox for the next process. </p>
                     </div>
                 </div>
             </div>

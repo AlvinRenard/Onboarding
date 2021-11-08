@@ -1,5 +1,6 @@
 <html>
 <head>
+    <title>Contoh Surat Pernyataan</title>
     <meta charset="utf-8">
     <style>
         #judul{
@@ -54,7 +55,7 @@
             <tr>
                 <td style="width: 30%;">Nama</td>
                 <td style="width: 5%;">:</td>
-                <td style="width: 65%;">{{$data['employee']->nama}}</td>
+                <td style="width: 65%;">{{$data['employee']->remuneration->nama}}</td>
             </tr>
             <tr>
                 <td style="width: 30%;">Jabatan</td>
@@ -99,8 +100,7 @@
             </tr>
         </table>
 		<p>Dalam  hal  ini  bertindak  untuk  dan  atas  nama  diri  pribadi  dan  selanjutnya disebut PIHAK KEDUA. </p>
-		<div style="width: 30%; text-align: left; float: right;">Purwodadi, 20 Januari 2020</div><br>
-        <div style="width: 30%; text-align: left; float: right;">Yang bertanda tangan,</div><br><br>
+
 		<h3 id=judul>PASAL 1</h3>
 		<h3 id=judul>MASA KERJA</h3>
 		<h3 style="text-align: left"> Ayat 1 </h3>
@@ -121,7 +121,20 @@
 			<li>1.Skorsing, atau</li>
 			<li>2.Pemutusan Hubungan Pekerjaan (PHK), atau</li>
 			<li>3.Hukuman  dalam  bentuk  lain  dengan  merujuk  kepada  Peraturan  Pemerintah yang mengaturnya.</li>
+    </ul>
+    <div style="width: 30%; text-align: left; float: right;">Purwodadi, 20 Januari 2020</div><br>
+        <div style="width: 30%; text-align: left; float: right;">Yang bertanda tangan,</div><br>
+    <div>
+        <?php
+$path = 'C:\xampp\htdocs\Onboarding_Renard\public\images\Tanda_tangan.png';
+$type = pathinfo($path, PATHINFO_EXTENSION);
+$data = file_get_contents($path);
+$base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+?>
+<img src="<?php echo $base64?>"style="width: 30%; float: right;" width="150" height="150"/>
     </div>
+    </div>
+    
 </body>
 
 </html>

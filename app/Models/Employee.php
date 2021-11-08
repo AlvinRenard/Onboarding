@@ -25,4 +25,8 @@ class Employee extends Model
     {
     	return $this->hasOne('App\Models\od',"EmployeeId");
     }
+    public function finalapproval()
+    {
+    	return $this->hasOne('App\Models\FinalApproval',"EmployeeId");
+    }
 }

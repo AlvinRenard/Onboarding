@@ -23,6 +23,8 @@ class CreateRemunerationTable extends Migration
             $table ->string('kode');
             $table ->string('grade');
             $table ->string('status');
+            $table ->string('odprogress');
+            $table ->string('token');  
 			$table ->timestamps();
         });
     }

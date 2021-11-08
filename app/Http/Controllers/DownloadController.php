@@ -11,21 +11,21 @@ class DownloadController extends Controller
     public function downloadijazah($id){
     $filename =DownloadFile::where('EmployeeId', $id)->first();
           $download = public_path()."/uploads/$filename->file_ijazah";
-        return response()->download($download);
+        return response()->file($download);
     }
     public function downloadcv($id){
       $filename =DownloadFile::where('EmployeeId', $id)->first();
             $download = public_path()."/uploads/$filename->file_cv";
-          return response()->download($download);
+          return response()->file($download);
       }
       public function downloadfpk($id){
         $filename =DownloadFile::where('EmployeeId', $id)->first();
               $download = public_path()."/uploads/$filename->file_fpk";
-            return response()->download($download);
+            return response()->file($download);
         }
         public function downloadphoto($id){
           $filename =DownloadFile::where('EmployeeId', $id)->first();
                 $download = public_path()."/uploads/$filename->file_photo";
-              return response()->download($download);
+              return response()->file($download);
           }
 }

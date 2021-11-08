@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Remuneration extends Model
+class FinalApproval extends Model
 {
     //
-    protected $table = 'remuneration';
-    public function rem()
+    protected $table = 'finalapproval';
+    public $timestamps = false;
+    public function Finapproval()
     {
     	return $this->belongsTo('App\Models\Employee','id');
     }

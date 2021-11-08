@@ -124,10 +124,10 @@ All Set! Ready to be reviewed
         </td> -->
         <td class='action'>
 
-          <a class="accept" href="{{ '/accept/'.$data['employee']->id }}">
+          <a class="accept" href="{{ '/acceptfinal/'.$data['employee']->id }}">
             Accept
           </a>
-          <a class="reject" href="{{ '/reject/'.$data['employee']->id }}">
+          <a class="reject" href="{{ '/rejectfinal/'.$data['employee']->id }}">
             Reject
           </a>
         </td>
@@ -185,6 +185,13 @@ All Set! Ready to be reviewed
         <dd>
         <a href="{{ '/downloadphoto/'.$data['employee']->id }}">Download</a>
         </dd>
+        <dt>
+          Kontrak kerja
+</dt>
+<dd>
+<a href="{{ '/certif2/'.$data['employee']->id.'/'.$data['employee']->token }}" class="btn btn-primary" target="_blank">Download PDF</a>
+</dd>
+</dt>
         <dt>
           Notes
         </dt>

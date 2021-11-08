@@ -33,7 +33,9 @@ Route::get('/success', 'App\Http\Controllers\InterviewControl@success');
 Route::get('/login', 'App\Http\Controllers\UserController@loginindex');
 Route::get('/userlanding/{id}', 'App\Http\Controllers\UserController@userlanding');
 Route::get('/final/{id}', 'App\Http\Controllers\FileUploadController@final');
+Route::get('/finalemplanding/{id}/{token?}', 'App\Http\Controllers\FileUploadController@finalemplanding');
 Route::get('/Remuneration/{id}/{token?}', 'App\Http\Controllers\UserController@remuneration');
+Route::get('/finalapprovalview/{id}/{token?}', 'App\Http\Controllers\UserController@finalapprovalview');
 Route::post('/loginPost', 'App\Http\Controllers\UserController@loginPost');
 Route::get('/register', 'App\Http\Controllers\UserController@register');
 Route::post('/registerPost', 'App\Http\Controllers\UserController@registerPost');
@@ -53,13 +55,20 @@ Route::post('/uploaddatabase3/{id}/{token?}', 'App\Http\Controllers\FileUploadCo
 Route::post('/uploaddatabase4/{id}/{token?}', 'App\Http\Controllers\FileUploadController@fileStorephoto');
 Route::get('/sendemail/{id}/{token?}','App\Http\Controllers\EmailController@index');
 Route::get('/sendemailod/{id}/{token?}','App\Http\Controllers\EmailController@odemail');
+Route::get('/finalapproval1/{id}/{token?}','App\Http\Controllers\EmailController@finapproval1');
+Route::get('/finalapproval2/{id}/{token?}','App\Http\Controllers\EmailController@finapproval2');
+Route::get('/finalapproval3/{id}/{token?}','App\Http\Controllers\EmailController@finapproval3');
 Route::get('/empemail/{id}/{token?}','App\Http\Controllers\EmailController@empemail');
 Route::get('/empdetails/{id}/{token?}','App\Http\Controllers\UserController@empdetails');
 Route::get('/accept/{id}', 'App\Http\Controllers\UserController@accept');
+Route::get('/acceptfinal/{id}', 'App\Http\Controllers\UserController@acceptfinal');
 Route::get('/reject/{id}', 'App\Http\Controllers\UserController@reject');
+Route::get('/rejectfinal/{id}', 'App\Http\Controllers\UserController@reject');
 Route::post('/kodeposisi/{id}', 'App\Http\Controllers\UserController@kode');
 Route::get('/certif/{id}/{token?}', 'App\Http\Controllers\UserController@certif');
-Route::get('/certif/cetakpdf/{id}/{token?}', 'App\Http\Controllers\UserController@cetakpdf');
+Route::get('/certif2/{id}/{token?}', 'App\Http\Controllers\UserController@certif2');
+Route::get('/docs/{id}/{token?}', 'App\Http\Controllers\UserController@docs');
+// Route::get('/certif/cetakpdf/{id}/{token?}', 'App\Http\Controllers\UserController@cetakpdf');
 Route::middleware('auth:admin')->group(function(){
     // Tulis routemu di sini.
   });

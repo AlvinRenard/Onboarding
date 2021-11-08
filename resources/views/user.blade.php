@@ -26,6 +26,21 @@
         <div class="text-center" style=" padding-bottom: 6rem;">
                     @if ($data['employee'] -> progress -> progress == "0")
                     <h2 class="section-heading text-uppercase" style=" padding-bottom: 5rem;">Your Progress</h2>
+                    @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                <strong>{{ $message }}</strong>
+            </div>
+          @endif
+
+          @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+          @endif
                 <ul class="progressbar">
                     <div class="tab" role="tabpanel">
                         <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
@@ -50,7 +65,7 @@
                                 <button
                                     class="nav-link {{$data['employee'] -> progress -> progress < 3 ? 'disabled' : ''}}"
                                     id="s-tab" data-bs-toggle="tab" data-bs-target="#s" type="button" role="tab"
-                                    aria-controls="s" aria-selected="false">s</button>
+                                    aria-controls="s" aria-selected="false">Submit Photo</button>
                             </li>
                         </ul>
                     </div>
@@ -59,6 +74,21 @@
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <form action="{{ '/uploaddatabase1/'.$data['employee']->id.'/'.$data['employee']->token }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
+                        @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                <strong>{{ $message }}</strong>
+            </div>
+          @endif
+
+          @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+          @endif
                         <input type="hidden" name="id" value="{{$data['employee']->id}}">
                         <input type="hidden" name="process" value="1">
                         <div class="form-group">
@@ -72,6 +102,21 @@
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <form action="{{ '/uploaddatabase2/'.$data['employee']->id.'/'.$data['employee']->token }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
+                        @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                <strong>{{ $message }}</strong>
+            </div>
+          @endif
+
+          @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+          @endif
                         <input type="hidden" name="id" value="{{$data['employee']->id}}">
                         <input type="hidden" name="process" value="2">
                         <div class="form-group">
@@ -85,6 +130,21 @@
                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                     <form action="{{ '/uploaddatabase3/'.$data['employee']->id.'/'.$data['employee']->token }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
+                        @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                <strong>{{ $message }}</strong>
+            </div>
+          @endif
+
+          @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+          @endif
                         <input type="hidden" name="id" value="{{$data['employee']->id}}">
                         <input type="hidden" name="process" value="3">
                         <div class="form-group">
@@ -98,6 +158,21 @@
                 <div class="tab-pane fade" id="s" role="tabpanel" aria-labelledby="s-tab">
                     <form action="{{ '/uploaddatabase4/'.$data['employee']->id.'/'.$data['employee']->token }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
+                        @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                <strong>{{ $message }}</strong>
+            </div>
+          @endif
+
+          @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+          @endif
                         <input type="hidden" name="id" value="{{$data['employee']->id}}">
                         <input type="hidden" name="process" value="4">
                         <div class="form-group">
@@ -113,6 +188,21 @@
             <div class="text-center" style=" padding-bottom: 6rem;">
                     @elseif ($data['employee'] -> progress -> progress == "1")
                     <h2 class="section-heading text-uppercase" style=" padding-bottom: 5rem;">Your Progress</h2>
+                    @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                <strong>{{ $message }}</strong>
+            </div>
+          @endif
+
+          @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+          @endif
                 <ul class="progressbar">
                     <div class="tab" role="tabpanel">
                         <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
@@ -137,7 +227,7 @@
                                 <button
                                     class="nav-link {{$data['employee'] -> progress -> progress < 3 ? 'disabled' : ''}}"
                                     id="s-tab" data-bs-toggle="tab" data-bs-target="#s" type="button" role="tab"
-                                    aria-controls="s" aria-selected="false">s</button>
+                                    aria-controls="s" aria-selected="false">Submit Photo</button>
                             </li>
                         </ul>
                     </div>
@@ -146,6 +236,7 @@
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <form action="{{ '/uploaddatabase1/'.$data['employee']->id.'/'.$data['employee']->token }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
+                  
                         <input type="hidden" name="id" value="{{$data['employee']->id}}">
                         <input type="hidden" name="process" value="1">
                         <div class="form-group">
@@ -159,6 +250,7 @@
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <form action="{{ '/uploaddatabase2/'.$data['employee']->id.'/'.$data['employee']->token }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
+                      
                         <input type="hidden" name="id" value="{{$data['employee']->id}}">
                         <input type="hidden" name="process" value="2">
                         <div class="form-group">
@@ -172,6 +264,7 @@
                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                     <form action="{{ '/uploaddatabase3/'.$data['employee']->id.'/'.$data['employee']->token }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
+                       
                         <input type="hidden" name="id" value="{{$data['employee']->id}}">
                         <input type="hidden" name="process" value="3">
                         <div class="form-group">
@@ -185,6 +278,7 @@
                 <div class="tab-pane fade" id="s" role="tabpanel" aria-labelledby="s-tab">
                     <form action="{{ '/uploaddatabase4/'.$data['employee']->id.'/'.$data['employee']->token }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
+                      
                         <input type="hidden" name="id" value="{{$data['employee']->id}}">
                         <input type="hidden" name="process" value="4">
                         <div class="form-group">
@@ -199,6 +293,21 @@
             </div>
                     @elseif ($data['employee'] -> progress -> progress == "2")
                     <h2 class="section-heading text-uppercase" style=" padding-bottom: 5rem;">Your Progress</h2>
+                    @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                <strong>{{ $message }}</strong>
+            </div>
+          @endif
+
+          @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+          @endif
                 <ul class="progressbar">
                     <div class="tab" role="tabpanel">
                         <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
@@ -232,6 +341,7 @@
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <form action="{{ '/uploaddatabase1/'.$data['employee']->id.'/'.$data['employee']->token }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
+                     
                         <input type="hidden" name="id" value="{{$data['employee']->id}}">
                         <input type="hidden" name="process" value="1">
                         <div class="form-group">
@@ -245,6 +355,7 @@
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <form action="{{ '/uploaddatabase2/'.$data['employee']->id.'/'.$data['employee']->token }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
+                  
                         <input type="hidden" name="id" value="{{$data['employee']->id}}">
                         <input type="hidden" name="process" value="2">
                         <div class="form-group">
@@ -258,6 +369,7 @@
                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                     <form action="{{ '/uploaddatabase3/'.$data['employee']->id.'/'.$data['employee']->token }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
+                   
                         <input type="hidden" name="id" value="{{$data['employee']->id}}">
                         <input type="hidden" name="process" value="3">
                         <div class="form-group">
@@ -271,6 +383,7 @@
                 <div class="tab-pane fade" id="s" role="tabpanel" aria-labelledby="s-tab">
                     <form action="{{ '/uploaddatabase4/'.$data['employee']->id.'/'.$data['employee']->token }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
+                     
                         <input type="hidden" name="id" value="{{$data['employee']->id}}">
                         <input type="hidden" name="process" value="4">
                         <div class="form-group">
@@ -285,6 +398,21 @@
             </div>
                     @elseif ($data['employee'] -> progress -> progress == "3")
                     <h2 class="section-heading text-uppercase" style=" padding-bottom: 5rem;">Your Progress</h2>
+                    @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                <strong>{{ $message }}</strong>
+            </div>
+          @endif
+
+          @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+          @endif
                 <ul class="progressbar">
                     <div class="tab" role="tabpanel">
                         <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
@@ -318,6 +446,7 @@
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <form action="{{ '/uploaddatabase1/'.$data['employee']->id.'/'.$data['employee']->token }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
+                      
                         <input type="hidden" name="id" value="{{$data['employee']->id}}">
                         <input type="hidden" name="process" value="1">
                         <div class="form-group">
@@ -331,6 +460,7 @@
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <form action="{{ '/uploaddatabase2/'.$data['employee']->id.'/'.$data['employee']->token }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
+                     
                         <input type="hidden" name="id" value="{{$data['employee']->id}}">
                         <input type="hidden" name="process" value="2">
                         <div class="form-group">
@@ -344,6 +474,7 @@
                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                     <form action="{{ '/uploaddatabase3/'.$data['employee']->id.'/'.$data['employee']->token }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
+                      
                         <input type="hidden" name="id" value="{{$data['employee']->id}}">
                         <input type="hidden" name="process" value="3">
                         <div class="form-group">
@@ -357,6 +488,7 @@
                 <div class="tab-pane fade" id="s" role="tabpanel" aria-labelledby="s-tab">
                     <form action="{{ '/uploaddatabase4/'.$data['employee']->id.'/'.$data['employee']->token }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
+                       
                         <input type="hidden" name="id" value="{{$data['employee']->id}}">
                         <input type="hidden" name="process" value="4">
                         <div class="form-group">
@@ -371,6 +503,21 @@
             </div>
                     @elseif ($data['employee'] -> progress -> progress == "4")
                     <h2 class="section-heading text-uppercase" style=" padding-bottom: 5rem;">Your Progress</h2>
+                    @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                <strong>{{ $message }}</strong>
+            </div>
+          @endif
+
+          @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+          @endif
                 <ul class="progressbar">
                     <div class="tab" role="tabpanel">
                         <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
@@ -405,6 +552,7 @@
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <form action="{{ '/uploaddatabase1/'.$data['employee']->id.'/'.$data['employee']->token }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
+                        
                         <input type="hidden" name="id" value="{{$data['employee']->id}}">
                         <input type="hidden" name="process" value="1">
                         <div class="form-group">
@@ -418,6 +566,7 @@
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <form action="{{ '/uploaddatabase2/'.$data['employee']->id.'/'.$data['employee']->token }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
+                     
                         <input type="hidden" name="id" value="{{$data['employee']->id}}">
                         <input type="hidden" name="process" value="2">
                         <div class="form-group">
@@ -431,6 +580,7 @@
                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                     <form action="{{ '/uploaddatabase3/'.$data['employee']->id.'/'.$data['employee']->token }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
+                       
                         <input type="hidden" name="id" value="{{$data['employee']->id}}">
                         <input type="hidden" name="process" value="3">
                         <div class="form-group">
@@ -444,6 +594,7 @@
                 <div class="tab-pane fade" id="s" role="tabpanel" aria-labelledby="s-tab">
                     <form action="{{ '/uploaddatabase4/'.$data['employee']->id.'/'.$data['employee']->token }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
+                      
                         <input type="hidden" name="id" value="{{$data['employee']->id}}">
                         <input type="hidden" name="process" value="4">
                         <div class="form-group">
@@ -491,6 +642,7 @@
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <form action="{{ '/uploaddatabase1/'.$data['employee']->id.'/'.$data['employee']->token }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
+                       
                         <input type="hidden" name="id" value="{{$data['employee']->id}}">
                         <input type="hidden" name="process" value="1">
                         <div class="form-group">
@@ -504,6 +656,7 @@
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <form action="{{ '/uploaddatabase2/'.$data['employee']->id.'/'.$data['employee']->token }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
+                      
                         <input type="hidden" name="id" value="{{$data['employee']->id}}">
                         <input type="hidden" name="process" value="2">
                         <div class="form-group">
@@ -517,6 +670,7 @@
                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                     <form action="{{ '/uploaddatabase3/'.$data['employee']->id.'/'.$data['employee']->token }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
+                      
                         <input type="hidden" name="id" value="{{$data['employee']->id}}">
                         <input type="hidden" name="process" value="3">
                         <div class="form-group">
@@ -530,6 +684,7 @@
                 <div class="tab-pane fade" id="s" role="tabpanel" aria-labelledby="s-tab">
                     <form action="{{ '/uploaddatabase4/'.$data['employee']->id.'/'.$data['employee']->token }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
+                         
                         <input type="hidden" name="id" value="{{$data['employee']->id}}">
                         <input type="hidden" name="process" value="4">
                         <div class="form-group">
