@@ -18,14 +18,11 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Arr;
 use PDF;
+use Auth;
 class UserController extends Controller
 {
     //
     public function index(){
-        if(!Session::get('login')){
-            return redirect('login')->with('alert','LOGIN DULU');
-        }
-        else{
             $user = $employees = DB::table('users')->get();
             $progress= Employee::with('progress')->get();
             $user2 = Employee::with('progress')
@@ -38,7 +35,6 @@ class UserController extends Controller
             $rejected = Remuneration::where('status','=','Rejected')->count();
             $pegawai = DB::table('employees')->paginate(10);
             return view('homepage')->with('rejected',$rejected)->with('finprocess',$finprocess)->with('rem',$rem)->with('employees', $employees)->with('pegawai', $pegawai)->with('progress',$progress)->with('user',$user)->with('user2',$user2);
-        }
     }
     public function loginindex(){
         if(Session::has('login')){
@@ -70,25 +66,16 @@ class UserController extends Controller
     }
 
     public function loginPost(Request $request){
-        $email = $request->email;
-        $password = $request->password;
+        $credentials = $request->validate([
+            'email'=>['required','email'],
+            'password'=>['required'],
+        ]);
 
-        $data = User::where('email',$email)->first();
-        if($data){ //apakah email tersebut ada atau tidak
-            if(Hash::check($password,$data->password)){
-                Session::put('name',$data->name);
-                Session::put('email',$data->email);
-                Session::put('grade',$data->grade);
-                Session::put('login',TRUE);
-                return redirect('home');
-            }
-            else{
-                return redirect('login')->with('alert','Password atau Email, Salah !');
-            }
+        if(Auth::attempt($credentials)){
+            $request->session()->regenerate();
+            return redirect()->intended('/home');
         }
-        else{
             return redirect('login')->with('alert','Password atau Email, Salah!');
-        }
     }
 
     public function logout(){
@@ -108,6 +95,7 @@ class UserController extends Controller
             'password' => 'required',
             'confirmation' => 'required|same:password',
             'grade' => 'required',
+            'status'=>'required',
         ]);
 
         $data =  new User();
@@ -115,6 +103,7 @@ class UserController extends Controller
         $data->email = $request->email;
         $data->password = bcrypt($request->password);
         $data->grade = $request->grade;
+        $data->status= $request->status;
         $data->save();
         return redirect('login')->with('alert-success','Kamu berhasil Register');
     }
@@ -128,10 +117,6 @@ class UserController extends Controller
         return view('user')->with('data', $data)->with('progress',$progress);
     }
     public function ticket(){
-        if(!Session::get('login')){
-            return redirect('login')->with('alert','LOGIN DULU');
-        }
-        else{
             $user = $employees = DB::table('users')->get()->sortBy('nama');
             $progress= Employee::with('progress')->get();
             $empdata = DB::table('remuneration')->orderBy('EmployeeId', 'DESC')->paginate(9);
@@ -141,7 +126,6 @@ class UserController extends Controller
             $rejected = Remuneration::where('status','=','Rejected')->count();
             $pegawai = DB::table('employees')->paginate(10);
             return view('ticket')->with('rejected',$rejected)->with('finprocess',$finprocess)->with('rem',$rem)->with('employees', $employees)->with('pegawai', $pegawai)->with('progress',$progress)->with('empdata',$empdata);
-        }
     }
     public function accept($id){
         $data['employee']= Employee::with('progress')->find($id);

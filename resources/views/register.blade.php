@@ -39,6 +39,10 @@
                 <input type="text" class="form-control" id="grade" name="grade">
             </div>
             <div class="form-group">
+                <label for="alamat">status</label>
+                <input type="text" class="form-control" id="status" name="status">
+            </div>
+            <div class="form-group">
                 <button type="submit" class="btn btn-md btn-primary">Submit</button>
                 <button type="reset" class="btn btn-md btn-danger">Cancel</button>
             </div>
