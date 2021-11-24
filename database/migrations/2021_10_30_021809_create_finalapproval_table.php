@@ -17,7 +17,6 @@ class CreateFinalApprovalTable extends Migration
             $table ->increments('id');
             $table->unsignedBigInteger('EmployeeId');
             $table->foreign('EmployeeId')->references('id')->on('employees');
-            $table -> string('grade');
             $table -> string('status');
         });
     }

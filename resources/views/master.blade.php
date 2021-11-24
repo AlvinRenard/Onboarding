@@ -36,30 +36,7 @@
       <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
     </div>
 
-    <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-      <!-- Left navbar links -->
-      <ul class="navbar-nav">
-        <a href="/logout" class="btn btn-primary btn-lg">Logout</a>
-      </ul>
-
-      <!-- Right navbar links -->
-      <ul class="navbar-nav ml-auto">
-        <!-- Navbar Search -->
-        <li class="nav-item">
-          <div class="navbar-search-block">
-            <form class="form-inline">
-              <div class="input-group input-group-sm">
-                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-                <div class="input-group-append">
-                  <button class="btn btn-navbar" type="submit">
-                    <i class="fas fa-search"></i>
-                  </button>
-                  <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                    <i class="fas fa-times"></i>
-                  </button>
-                  <a href="/logout" class="btn btn-primary btn-lg">Logout</a>
-
                 </div>
               </div>
             </form>
@@ -78,35 +55,20 @@
         <span class="brand-text font-weight-light">HR Onboarding</span>
       </a>
 
-      <!-- Sidebar -->
+
       <div class="sidebar">
-        <!-- Sidebar user panel (optional) -->
+
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
             <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="#" class="d-block">{{Session::get('name')}}</a>
+            <a class="d-block">{{Session::get('name')}}</a>
           </div>
         </div>
 
-        <!-- SidebarSearch Form -->
-        <div class="form-inline">
-          <div class="input-group" data-widget="sidebar-search">
-            <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-            <div class="input-group-append">
-              <button class="btn btn-sidebar">
-                <i class="fas fa-search fa-fw"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
             <li class="nav-item">
               <a href="/home" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -117,14 +79,14 @@
             </li>
             <li class="nav-item">
               <a href="/ticket" class="nav-link">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa-info"></i>
                 <p>Ticket Status</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="/ticket" class="nav-link">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
-                <p>Final Process</p>
+              <a href="/logout" class="nav-link">
+              <i class="nav-icon fas fa-sign-out-alt"></i>
+                <p style="color:white;"><b>Logout</b></p>
               </a>
             </li>
           </ul>
@@ -169,9 +131,8 @@
                   <p>Total Tickets</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-stats-bars"></i>
+                  <i class="ion ion-document"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
 
@@ -180,13 +141,12 @@
               <!-- small box -->
               <div class="small-box bg-warning">
                 <div class="inner">
-                  <h3 style="color:white">{{ $rem }} </h3>
-                  <p style="color:white">Accepted By Remuneration</p>
+                  <h3 style="color:white">{{ $ongoing }} </h3>
+                  <p style="color:white"> Ongoing Onboard Process</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-person-add"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <div class="col-lg-3 col-6">
@@ -195,12 +155,11 @@
                 <div class="inner">
                   <h3>{{ $rejected }}</h3>
 
-                  <p>Rejected by Remuneration</p>
+                  <p>Failed Onboard Process</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-bag"></i>
+                  <i class="ion ion-android-warning"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
@@ -208,14 +167,13 @@
               <!-- small box -->
               <div class="small-box bg-danger">
                 <div class="inner">
-                  <h3>{{ $finprocess }}</h3>
+                  <h3>1 </h3>
 
                   <p>Final Process</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-pie-graph"></i>
+                  <i class="ion ion-ios-checkmark"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
           </div>
@@ -228,7 +186,7 @@
             </div>
             <!-- /.card-header -->
             @yield('konten')
-           
+
       </section>
       <section class="col-lg-5 connectedSortable">
     </div>
@@ -236,7 +194,6 @@
       <strong>Copyright &copy; Alvin renard</a>.</strong>
       All rights reserved.
       <div class="float-right d-none d-sm-inline-block">
-        <b>Version</b> 3.2.0-rc
       </div>
     </footer>
 

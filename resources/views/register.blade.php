@@ -35,10 +35,6 @@
                 <input type="text" class="form-control" id="name" name="name">
             </div>
             <div class="form-group">
-                <label for="alamat">Grade:</label>
-                <input type="text" class="form-control" id="grade" name="grade">
-            </div>
-            <div class="form-group">
                 <label for="alamat">status</label>
                 <input type="text" class="form-control" id="status" name="status">
             </div>

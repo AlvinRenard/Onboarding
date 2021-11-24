@@ -20,8 +20,9 @@ class CreateEmployeesTable extends Migration
 			$table -> string('posisi');
             $table -> string('email');
             $table -> string('status');
-            $table -> string('kode');
             $table -> string('grade');
+            $table -> string('kode');
+            $table -> string('token');
 			$table -> timestamps();
         });
     }

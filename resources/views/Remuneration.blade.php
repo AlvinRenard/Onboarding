@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html >
+<html>
+
 <head>
   <meta charset="UTF-8">
   <title>Responsive Table + Detail View</title>
-  
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -15,105 +16,121 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js">
-  
+
   <link rel="stylesheet" type="text/css" href="{{ asset('dist/css/table.css') }}">
-<style>
-  .button1 {
-	color: #fff !important;
-	text-transform: uppercase;
-	text-decoration: none;
-	background: #60a3bc;
-	padding: 10px;
-	border-radius: 50px;
-	display: inline-block;
-	border: none;
-	transition: all 0.4s ease 0s;
-}
-.accept {
-	color: #fff !important;
-	text-transform: uppercase;
-	text-decoration: none;
-	background: green;
-	padding: 10px;
-	border-radius: 50px;
-	display: inline-block;
-	border: none;
-	transition: all 0.4s ease 0s;
-}
-.reject {
-	color: #fff !important;
-	text-transform: uppercase;
-	text-decoration: none;
-	background: red;
-	padding: 10px;
-	border-radius: 50px;
-	display: inline-block;
-	border: none;
-	transition: all 0.4s ease 0s;
-}
-#select{
-  color: #fff !important;
-	text-transform: uppercase;
-	text-decoration: none;
-	background: #60a3bc;
-	padding: 15px;
-	border-radius: 50px;
-	display: inline-block;
-	border: none;
-	transition: all 0.4s ease 0s;
-}
-.button {
-  font-size: 16px;
-}
-td {
-  text-align: center;
-  vertical-align: middle;
-}
+  <style>
+    .button1 {
+      color: #fff !important;
+      text-transform: uppercase;
+      text-decoration: none;
+      background: #60a3bc;
+      padding: 10px;
+      border-radius: 50px;
+      display: inline-block;
+      border: none;
+      transition: all 0.4s ease 0s;
+    }
+
+    .accept {
+      color: #fff !important;
+      text-transform: uppercase;
+      text-decoration: none;
+      background: green;
+      padding: 10px;
+      border-radius: 50px;
+      display: inline-block;
+      border: none;
+      transition: all 0.4s ease 0s;
+    }
+
+    .reject {
+      color: #fff !important;
+      text-transform: uppercase;
+      text-decoration: none;
+      background: red;
+      padding: 10px;
+      border-radius: 50px;
+      display: inline-block;
+      border: none;
+      transition: all 0.4s ease 0s;
+    }
+
+    #select {
+      color: #fff !important;
+      text-transform: uppercase;
+      text-decoration: none;
+      background: #60a3bc;
+      padding: 15px;
+      border-radius: 50px;
+      display: inline-block;
+      border: none;
+      transition: all 0.4s ease 0s;
+    }
+
+    .button {
+      font-size: 16px;
+    }
+
+    td {
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    dt {
+      text-align: center;
+    }
+
+    dl {
+      text-align: center;
+    }
   </style>
 </head>
 
-<body>
+<body style="background-image: url('{{asset('images/indosatbg.png')}}'); 
+    background-repeat:no-repeat;
+    background-size: 100%;
+    background-position: center;">
   <h1>
-  Remuneration
-</h1>
-<p>
-All Set! Ready to be reviewed
-</p>
-<main>
-  <table>
-    <thead>
-      <tr>
-      <th class="text-center" scope="col">#</th>
-      <th class="text-center" scope="col">Name</th>
-      <th class="text-center" scope="col">Address</th>
-      <th class="text-center" scope="col">Details</th>
-      <th class="text-center" scope="col">Action</th>
-      </tr>
-    </thead>
-    <tfoot>
-      <tr>
-        <th colspan='3'>
+    Remuneration
+  </h1>
+  <p>
+    Ready to be reviewed
+  </p>
+  <main>
+    <table>
+      <thead>
+        <tr>
+          <th class="text-center" scope="col">#</th>
+          <th class="text-center" scope="col">Name</th>
+          <th class="text-center" scope="col">Address</th>
+          <th class="text-center" scope="col">Details</th>
+          <th class="text-center" scope="col">Action</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <th colspan='3'>
 
-        </th>
-      </tr>
-    </tfoot>
-    <tbody>
-      <tr>
-        <td data-title='ID'>
-        {{ $data['employee']->id }}
-        </td>
-        <td data-title='E-mail'>
-        {{ $data['employee']->nama }}
-        </td>
-        <td data-title='E-mail'>
-        {{ $data['employee']->email }}
-        </td>
-        <td class='select'>
-          <a class='button' id="select" href='#'>
-            Select
-          </a>
-        </td>
-        <!-- <td class='select'>
+          </th>
+        </tr>
+      </tfoot>
+      <tbody>
+        <tr>
+          <td data-title='ID'>
+            {{ $data['employee']->id }}
+          </td>
+          <td data-title='E-mail'>
+            {{ $data['employee']->nama }}
+          </td>
+          <td data-title='E-mail'>
+            {{ $data['employee']->email }}
+          </td>
+          <td class='select'>
+            <a class='button' id="select" href='#'>
+              Preview
+            </a>
+          </td>
+          <!-- <td class='select'>
         <a class="button1" href="{{ '/sendemailod/'.$data['employee']->id.'/'.$data['employee']->token}}">Send Email</a>
   <!-- <form action="{{ '/kodeposisi/'.$data['employee']->id }}" method="post">
   {{ csrf_field() }}
@@ -122,90 +139,118 @@ All Set! Ready to be reviewed
     <input type="submit" value="Submit">
   </form>
         </td> -->
-        <td class='action'>
+          <td class='action'>
 
-          <a class="accept" href="{{ '/accept/'.$data['employee']->id }}">
-            Accept
-          </a>
-          <a class="reject" href="{{ '/reject/'.$data['employee']->id }}">
-            Reject
-          </a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <div class='detail'>
-    <div class='detail-container'>
-      <dl>
-        <dt>
-          Full Name
-        </dt>
-        <dd>
-        {{ $data['employee']->nama }}
-        </dd>
-        <dt>
-          Position
-        </dt>
-        <dd>
-        {{ $data['employee']->posisi }}
-        </dd>
-        <dt>
-        E-mail
-        </dt>
-        <dd>
-        {{ $data['employee']->email }}
-        </dd>
-        <dt>
-          Grade
-        </dt>
-        <dd>
-        {{ $data['employee']->grade }}
-        </dd>
-        <dt>
-          CV Document
-        </dt>
-        <dd>
-        <a href="{{ '/downloadcv/'.$data['employee']->id }}">Download</a>
-        </dd>
-        <dt>
-          FPK Document
-        </dt>
-        <dd>
-        <a href="{{ '/downloadfpk/'.$data['employee']->id }}">Download</a>
-        </dd>
-        <dt>
-          Ijazah Document
-        </dt>
-        <dd>
-        <a href="{{ '/downloadijazah/'.$data['employee']->id }}">Download</a>
-        </dd>
-        <dt>
-          Photo Document
-        </dt>
-        <dd>
-        <a href="{{ '/downloadphoto/'.$data['employee']->id }}">Download</a>
-        </dd>
-        <dt>
-          Notes
-        </dt>
-        <dd>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.
-        </dd>
-      </dl>
+            <a class="accept" onclick="return confirm('Are you sure?')" href="{{ '/accept/'.$data['employee']->id }}">
+              Accept
+            </a>
+            <a class="reject" href="{{ '/rejectlanding/'.$data['employee']->id.'/'.$data['employee']->token }}">
+              Reject
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class='detail'>
+      <div class='detail-container'>
+        <dl>
+          <dt>
+            Full Name
+          </dt>
+          <dd>
+            {{ $data['employee']->nama }}
+          </dd>
+          <dt>
+            Position
+          </dt>
+          <dd>
+            {{ $data['employee']->posisi }}
+          </dd>
+          <dt>
+            E-mail
+          </dt>
+          <dd>
+            {{ $data['employee']->email }}
+          </dd>
+          <dt>
+            Address
+          </dt>
+          <dd>
+            {{ $data['employee']->userinformation->address }}
+          </dd>
+          <dt>
+            City
+          </dt>
+          <dd>
+            {{ $data['employee']->userinformation->city }}
+          </dd>
+          <dt>
+            Grade
+          </dt>
+          <dd>
+            {{ $data['employee']->grade }}
+          </dd>
+          <dt>
+            State
+          </dt>
+          <dd>
+            {{ $data['employee']->userinformation->state }}
+          </dd>
+          <dt>
+            Post Code
+          </dt>
+          <dd>
+            {{ $data['employee']->userinformation->postalcode }}
+          </dd>
+
+          @if($data['employee'] -> files-> file_cv != Null)
+          <dt>
+            CV Document
+          </dt>
+          <dd>
+            <a class="btn btn-success" href="{{ '/downloadcv/'.$data['employee']->id }}">Download</a>
+          </dd>
+          @endif
+          @if($data['employee'] -> files-> file_fpk != Null)
+          <dt>
+            FPK Document
+          </dt>
+          <dd>
+            <a class="btn btn-success" href="{{ '/downloadfpk/'.$data['employee']->id }}">Download</a>
+          </dd>
+          @endif
+          @if($data['employee'] -> files-> file_ijazah != Null)
+          <dt>
+            Ijazah Document
+          </dt>
+          <dd>
+            <a class="btn btn-success" href="{{ '/downloadijazah/'.$data['employee']->id }}">Download</a>
+          </dd>
+          @endif
+          @if($data['employee'] -> files->file_photo != Null)
+          <dt>
+            Photo Document
+          </dt>
+          <dd>
+            <a class="btn btn-success" href="{{ '/downloadphoto/'.$data['employee']->id }}">Download</a>
+          </dd>
+          @endif
+
+        </dl>
+      </div>
+      <div class='detail-nav'>
+        <button class='close'>
+          Close
+        </button>
+      </div>
     </div>
-    <div class='detail-nav'>
-      <button class='close'>
-        Close
-      </button>
-    </div>
-  </div>
-</main>
+  </main>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   <script type="text/javascript" src="{{ URL::asset('dist/table.js') }}"></script>
 
 </body>
-</html>
 
+</html>
 
 <!-- 
     <div class="card">
@@ -252,4 +297,3 @@ All Set! Ready to be reviewed
             </thead>
           </table>
         </div> -->
-    

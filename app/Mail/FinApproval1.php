@@ -31,6 +31,7 @@ class FinApproval1 extends Mailable
     {
         return $this->from('alvinrenard09@gmail.com')
                    ->view('finalapproval1')
+                   ->subject('Employee Approval - VP Head of HRO')
                    ->with(
                     [
                         'id' => $this->id,

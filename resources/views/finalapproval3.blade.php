@@ -333,7 +333,6 @@
     </style>
   </head>
   <body class="">
-    <span class="preheader">Final Approval Employee</span>
     <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body">
       <tr>
         <td>&nbsp;</td>
@@ -367,7 +366,8 @@
                           </tbody>
                         </table>
                         <p>If anything goes wrong, please email us with the details.</p>
-                        <p>Good luck! Hope it works.</p>
+                        <p>Regards, </p></br>
+                        <p>Remuneration Team </p>
                       </td>
                     </tr>
                   </table>

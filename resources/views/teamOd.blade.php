@@ -17,9 +17,12 @@ function myFunction() {
 </script>
 </head>
 
-<body>
+<body style ="background-image: url('{{asset('images/indosatbg.png')}}'); 
+    background-repeat:no-repeat;
+    background-size: 100%;
+    background-position: center;">
   <h1>
-  Remuneration
+  OD TEAM
 </h1>
 <p>
 All Set! Ready to be reviewed
@@ -55,7 +58,7 @@ All Set! Ready to be reviewed
         <td class='select'>
   <form action="{{ '/kodeposisi/'.$data['employee']->id }}" method="post">
   {{ csrf_field() }}
-    <input type="text"  placeholder=" {{ $data['employee']->nama }} " id="kode" name="kode">
+    <input type="text" pattern="[A-Z0-9]{2,}" placeholder=" {{ $data['employee']->nama }} " id="kode" name="kode">
     <input type="hidden" name="id" value="{{$data['employee']->id}}">
     <input type="submit" value="Submit">
   </form>
@@ -63,11 +66,6 @@ All Set! Ready to be reviewed
       </tr>
     </tbody>
   </table>
-    <div class='detail-nav'>
-      <button class='close'>
-        Close
-      </button>
-    </div>
   </div>
 </main>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>

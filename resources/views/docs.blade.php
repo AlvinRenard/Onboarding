@@ -82,18 +82,26 @@
                                     class="form-control" placeholder="enter address line 2" value="" disabled></div><br>
                         </div>
                         <div class="row mt-2">
-                            <div class="col-md-3"><label class="labels">CV Document</label><br><a
+                            @if($data['employee'] -> files-> file_cv != Null)
+                            <div class="col-md-3 "><label class="labels">CV Document</label><br><a
                                     class="btn btn-primary profile-button"
                                     href="{{ '/downloadcv/'.$data['employee']->id }}">Download</a></div><br>
+                                    @endif
+                                    @if($data['employee']  -> files-> file_fpk != Null)
                             <div class="col-md-3"><label class="labels">FPK Document</label><br><a
                                     class="btn btn-primary profile-button"
                                     href="{{ '/downloadfpk/'.$data['employee']->id }}">Download</a></div><br>
-                            <div class="col-md-3"><label class="labels">Ijazah Document</label><br><a
+                                    @endif
+                                    @if($data['employee']  -> files-> file_ijazah != Null)
+                            <div class="col-md-3 "><label class="labels">Ijazah Document</label><br><a
                                     class="btn btn-primary profile-button"
                                     href="{{ '/downloadijazah/'.$data['employee']->id }}">Download</a></div><br>
-                            <div class="col-md-3"><label class="labels">Photo Document</label><br><a
+                                    @endif
+                                    @if($data['employee'] -> files->file_photo != Null)
+                            <div class="col-md-3 "><label class="labels">Photo Document</label><br><a
                                     class="btn btn-primary profile-button"
                                     href="{{ '/downloadphoto/'.$data['employee']->id }}">Download</a></div><br>
+                                    @endif
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-6"><label class="labels">Country</label><input type="text"

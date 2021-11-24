@@ -32,13 +32,13 @@
             <div class="container px-4 px-lg-5 h-100">
                 <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-8 align-self-end">
-                        <h1 class="text-white font-weight-bold">All Set! Ready to be reviewed</h1>
-                        <h1 class="text-white font-weight-bold"> {{$data['employee']-> nama}}</h1>
+                        <h1 class="text-white font-weight-bold">{{$data['employee']-> nama}}, Are you sure you want to submit this documents?</h1>
+
                         <hr class="divider" />
                     </div>
                     <div class="col-lg-8 align-self-baseline">
-                        <p class="text-white-75 mb-5">Please confirm your submission by clicking button below </p>
-                        <a href="{{'/finalemplanding/'.$data['employee']->id}}">Confirm Submission</a>
+                        <p class="text-white-75 mb-5">Make sure that you already submit all the required documents </p>
+                        <a class="btn btn-primary"href="{{'/finalemplanding/'.$data['employee']->id}}">Confirm Submission</a>
                     </div>
                 </div>
             </div>

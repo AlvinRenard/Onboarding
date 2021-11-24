@@ -17,14 +17,8 @@ class CreateRemunerationTable extends Migration
             $table ->bigIncrements('id');
             $table->unsignedBigInteger('EmployeeId');
             $table->foreign('EmployeeId')->references('id')->on('employees');
-			$table ->string('nama');
-			$table ->string('posisi');
-            $table ->string('email');
             $table ->string('kode');
-            $table ->string('grade');
             $table ->string('status');
-            $table ->string('odprogress');
-            $table ->string('token');  
 			$table ->timestamps();
         });
     }

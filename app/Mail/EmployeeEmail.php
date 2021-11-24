@@ -31,6 +31,7 @@ class EmployeeEmail extends Mailable
     {
         return $this->from('alvinrenard09@gmail.com')
                    ->view('success')
+                   ->subject('Employee Approval - Remuneration')
                    ->with(
                     [
                         'id' => $this->id,

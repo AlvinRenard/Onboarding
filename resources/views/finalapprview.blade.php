@@ -72,9 +72,12 @@ td {
   </style>
 </head>
 
-<body>
+<body style ="background-image: url('{{asset('images/indosatbg.png')}}'); 
+    background-repeat:no-repeat;
+    background-size: 100%;
+    background-position: center;">
   <h1>
-  Remuneration
+  Final Approval
 </h1>
 <p>
 All Set! Ready to be reviewed
@@ -124,10 +127,10 @@ All Set! Ready to be reviewed
         </td> -->
         <td class='action'>
 
-          <a class="accept" href="{{ '/acceptfinal/'.$data['employee']->id }}">
+          <a class="accept" onclick="return confirm('Are you sure?')" href="{{ '/acceptfinal/'.$data['employee']->id }}">
             Accept
           </a>
-          <a class="reject" href="{{ '/rejectfinal/'.$data['employee']->id }}">
+          <a class="reject" href="{{ '/rejectfinallanding/'.$data['employee']->id }}">
             Reject
           </a>
         </td>
@@ -136,69 +139,90 @@ All Set! Ready to be reviewed
   </table>
   <div class='detail'>
     <div class='detail-container'>
-      <dl>
-        <dt>
-          Full Name
-        </dt>
-        <dd>
-        {{ $data['employee']->nama }}
-        </dd>
-        <dt>
-          Position
-        </dt>
-        <dd>
-        {{ $data['employee']->posisi }}
-        </dd>
-        <dt>
-        E-mail
-        </dt>
-        <dd>
-        {{ $data['employee']->email }}
-        </dd>
-        <dt>
-          Grade
-        </dt>
-        <dd>
-        {{ $data['employee']->grade }}
-        </dd>
-        <dt>
-          CV Document
-        </dt>
-        <dd>
-        <a href="{{ '/downloadcv/'.$data['employee']->id }}">Download</a>
-        </dd>
-        <dt>
-          FPK Document
-        </dt>
-        <dd>
-        <a href="{{ '/downloadfpk/'.$data['employee']->id }}">Download</a>
-        </dd>
-        <dt>
-          Ijazah Document
-        </dt>
-        <dd>
-        <a href="{{ '/downloadijazah/'.$data['employee']->id }}">Download</a>
-        </dd>
-        <dt>
-          Photo Document
-        </dt>
-        <dd>
-        <a href="{{ '/downloadphoto/'.$data['employee']->id }}">Download</a>
-        </dd>
-        <dt>
-          Kontrak kerja
-</dt>
-<dd>
-<a href="{{ '/certif2/'.$data['employee']->id.'/'.$data['employee']->token }}" class="btn btn-primary" target="_blank">Download PDF</a>
-</dd>
-</dt>
-        <dt>
-          Notes
-        </dt>
-        <dd>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.
-        </dd>
-      </dl>
+    <dl>
+          <dt>
+            Full Name
+          </dt>
+          <dd>
+            {{ $data['employee']->nama }}
+          </dd>
+          <dt>
+            Position
+          </dt>
+          <dd>
+            {{ $data['employee']->posisi }}
+          </dd>
+          <dt>
+            E-mail
+          </dt>
+          <dd>
+            {{ $data['employee']->email }}
+          </dd>
+          <dt>
+            Address
+          </dt>
+          <dd>
+            {{ $data['employee']->userinformation->address }}
+          </dd>
+          <dt>
+            City
+          </dt>
+          <dd>
+            {{ $data['employee']->userinformation->city }}
+          </dd>
+          <dt>
+            Grade
+          </dt>
+          <dd>
+            {{ $data['employee']->grade }}
+          </dd>
+          <dt>
+            State
+          </dt>
+          <dd>
+            {{ $data['employee']->userinformation->state }}
+          </dd>
+          <dt>
+            Post Code
+          </dt>
+          <dd>
+            {{ $data['employee']->userinformation->postalcode }}
+          </dd>
+   
+          @if($data['employee'] -> files-> file_cv != Null)
+          <dt>
+            CV Document
+          </dt>
+          <dd>
+            <a class="btn btn-success" href="{{ '/downloadcv/'.$data['employee']->id }}">Download</a>
+          </dd>
+          @endif
+          @if($data['employee'] -> files-> file_fpk != Null)
+          <dt>
+            FPK Document
+          </dt>
+          <dd>
+            <a class="btn btn-success" href="{{ '/downloadfpk/'.$data['employee']->id }}">Download</a>
+          </dd>
+          @endif
+          @if($data['employee'] -> files-> file_ijazah != Null)
+          <dt>
+            Ijazah Document
+          </dt>
+          <dd>
+            <a class="btn btn-success" href="{{ '/downloadijazah/'.$data['employee']->id }}">Download</a>
+          </dd>
+          @endif
+          @if($data['employee'] -> files->file_photo != Null)
+          <dt>
+            Photo Document
+          </dt>
+          <dd>
+            <a class="btn btn-success" href="{{ '/downloadphoto/'.$data['employee']->id }}">Download</a>
+          </dd>
+          @endif
+
+        </dl>
     </div>
     <div class='detail-nav'>
       <button class='close'>

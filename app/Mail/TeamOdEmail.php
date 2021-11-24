@@ -31,6 +31,7 @@ class TeamOdEmail extends Mailable
     {
         return $this->from('alvinrenard09@gmail.com')
                    ->view('odemail')
+                   ->subject('Employee Approval - OD')
                    ->with(
                     [
                         'id' => $this->id,

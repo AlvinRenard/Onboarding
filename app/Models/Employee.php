@@ -29,4 +29,16 @@ class Employee extends Model
     {
     	return $this->hasOne('App\Models\FinalApproval',"EmployeeId");
     }
+    public function financeappr()
+    {
+    	return $this->hasOne('App\Models\FinanceApproval',"EmployeeId");
+    }
+    public function rejected()
+    {
+    	return $this->hasOne('App\Models\Rejected',"EmployeeId");
+    }
+    public function userinformation()
+    {
+    	return $this->hasOne('App\Models\UserInformation',"EmployeeId");
+    }
 }

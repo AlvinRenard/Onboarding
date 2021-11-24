@@ -31,6 +31,7 @@ class UserEmail extends Mailable
     {
         return $this->from('alvinrenard09@gmail.com')
                    ->view('empemail')
+                   ->subject('Onboarding Documents Submission')
                    ->with(
                     [
                         'id' => $this->id,

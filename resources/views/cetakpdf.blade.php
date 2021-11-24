@@ -55,7 +55,7 @@
             <tr>
                 <td style="width: 30%;">Nama</td>
                 <td style="width: 5%;">:</td>
-                <td style="width: 65%;">{{$data['employee']->remuneration->nama}}</td>
+                <td style="width: 65%;">{{$data['employee']->nama}}</td>
             </tr>
             <tr>
                 <td style="width: 30%;">Jabatan</td>
@@ -125,13 +125,7 @@
     <div style="width: 30%; text-align: left; float: right;">Purwodadi, 20 Januari 2020</div><br>
         <div style="width: 30%; text-align: left; float: right;">Yang bertanda tangan,</div><br>
     <div>
-        <?php
-$path = 'C:\xampp\htdocs\Onboarding_Renard\public\images\Tanda_tangan.png';
-$type = pathinfo($path, PATHINFO_EXTENSION);
-$data = file_get_contents($path);
-$base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
-?>
-<img src="<?php echo $base64?>"style="width: 30%; float: right;" width="150" height="150"/>
+    
     </div>
     </div>
     

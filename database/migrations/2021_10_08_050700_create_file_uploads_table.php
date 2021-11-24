@@ -22,6 +22,8 @@ class CreateFileUploadsTable extends Migration
             $table->string('file_cv');
             $table->string('file_ijazah');
             $table->string('file_photo');
+            $table->string('idcard');
+            $table->string('contract');
             $table->timestamps();
         });
     }

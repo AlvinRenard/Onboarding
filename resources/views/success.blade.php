@@ -333,7 +333,6 @@
     </style>
   </head>
   <body class="">
-    <span class="preheader">This is preheader text. Some clients will show this text as a preview.</span>
     <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body">
       <tr>
         <td>&nbsp;</td>
@@ -349,8 +348,8 @@
                   <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                     <tr>
                       <td>
-                        <p>Hi there,</p>
-                        <p>This is the employee that ready to be reviewed,Please click the button below to access the employee data.</p>
+                      <p>Dear Remuneration Team, </p>
+                        <p>This is the employee that ready to be reviewed, Please click the button below to access the employee data.</p>
                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                           <tbody>
                             <tr>
@@ -367,7 +366,8 @@
                           </tbody>
                         </table>
                         <p>If anything goes wrong, please email us with the details.</p>
-                        <p>Good luck! Hope it works.</p>
+                        <p>Regards, </p></br>
+                        <p>HR Team </p>
                       </td>
                     </tr>
                   </table>
