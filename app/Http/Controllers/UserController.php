@@ -26,6 +26,20 @@ use Auth;
 class UserController extends Controller
 {
     //
+    public function adminpage(){
+        $user = $employees = DB::table('users')->get();
+        $progress= Employee::with('progress')->get();
+        $user2 = DB::table('users')
+                    ->orderBy('id', 'DESC')
+                    ->paginate(9);
+        $employees = DB::table('employees')->get();
+        $rem = Remuneration::where('status','=','Accepted By Remuneration')->count();
+        $ongoing = DB::table('employees')->where('status','!=','Accepted By Respective Manager')->get()->count();
+        $rejected = DB::table('rejected')->count();
+        $final = DB::table('progress')->where('progress','=','8')->get()->count();
+        $pegawai = DB::table('employees')->paginate(10);
+        return view('adminpage')->with('rejected',$rejected)->with('final',$final)->with('ongoing',$ongoing)->with('rem',$rem)->with('employees', $employees)->with('pegawai', $pegawai)->with('progress',$progress)->with('user',$user)->with('user2',$user2);
+}
     public function index(){
             $user = $employees = DB::table('users')->get();
             $progress= Employee::with('progress')->get();
@@ -36,8 +50,9 @@ class UserController extends Controller
             $rem = Remuneration::where('status','=','Accepted By Remuneration')->count();
             $ongoing = DB::table('employees')->where('status','!=','Accepted By Respective Manager')->get()->count();
             $rejected = DB::table('rejected')->count();
+            $final = DB::table('progress')->where('progress','=','8')->get()->count();
             $pegawai = DB::table('employees')->paginate(10);
-            return view('homepage')->with('rejected',$rejected)->with('ongoing',$ongoing)->with('rem',$rem)->with('employees', $employees)->with('pegawai', $pegawai)->with('progress',$progress)->with('user',$user)->with('user2',$user2);
+            return view('homepage')->with('rejected',$rejected)->with('final',$final)->with('ongoing',$ongoing)->with('rem',$rem)->with('employees', $employees)->with('pegawai', $pegawai)->with('progress',$progress)->with('user',$user)->with('user2',$user2);
     }
     public function loginindex(){
         if(Session::has('login')){
@@ -85,7 +100,7 @@ class UserController extends Controller
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
             Session::put('name', $request->email);
-            return redirect()->intended('/home');
+            return redirect()->intended('/adminpage');
         }
             return redirect('login')->with('alert','Password atau Email, Salah!');
     }
@@ -147,9 +162,10 @@ class UserController extends Controller
             $rem = Remuneration::where('status','=','Accepted By Remuneration')->count();
             $finprocess = Remuneration::where('status','=','All Files Complete. Ready to be reviewed')->count();
             $rejected = Remuneration::where('status','=','Rejected')->count();
+            $final = DB::table('progress')->where('progress','=','8')->get()->count();
             $pegawai = DB::table('employees')->paginate(10);
             $ongoing = DB::table('remuneration')->where('status','!=','Accepted By Respective Manager')->get()->count();
-            return view('ticket')->with('ongoing',$ongoing)->with('rejected',$rejected)->with('finprocess',$finprocess)->with('rem',$rem)->with('employees', $employees)->with('pegawai', $pegawai)->with('progress',$progress)->with('empdata',$empdata);
+            return view('ticket')->with('ongoing',$ongoing)->with('final',$final)->with('rejected',$rejected)->with('finprocess',$finprocess)->with('rem',$rem)->with('employees', $employees)->with('pegawai', $pegawai)->with('progress',$progress)->with('empdata',$empdata);
     }
     public function accept($id){
         $data['employee']= Employee::with('progress')->find($id);
@@ -260,6 +276,31 @@ class UserController extends Controller
         $data->save();
            
            return redirect('/home');
+    }
+    public function deleteuser($id){
+
+        User::where('id', $id)->delete();
+
+        return redirect('/adminpage');
+    }
+    public function edituser($id){
+
+        $user = DB::table('users')->first();
+        return view('edituser')->with('user', $user)->with('id',$id);
+    }
+    public function edituserPost($id,Request $request){
+        $this->validate($request, [
+            'name' => 'required|min:4',
+            'password' => 'required',
+            'status'=>'required',
+        ]);
+
+        $user = User::where('id', $id)->first()->update([
+            'name' => $request->name,
+            'password'=> bcrypt($request->password),
+            'status'=> $request->status,
+           ]);
+        return redirect('adminpage');
     }
     
     public function rejectlanding($id,$token=null,Request $request){
@@ -453,7 +494,7 @@ class UserController extends Controller
         $finprocess = Remuneration::where('status','=','All Files Complete. Ready to be reviewed')->count();
         $rejected = Remuneration::where('status','=','Rejected')->count();
         $pegawai = DB::table('employees')->paginate(10);
-        $data['employee']= Employee::with('files')->find($id);
+        $data['employee']= Employee::with('files')->with('userinformation')->find($id);
         if ($data['employee']->token!=$token) {
             $data['message'] = "Token not match";
             $data['employee'] = null;

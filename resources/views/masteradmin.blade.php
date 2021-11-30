@@ -128,13 +128,7 @@
               </div>
             </div>
           </div>
-          <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">
-                <i class="ion ion-clipboard mr-1"></i>
-                Employee Onboarding Ticket
-              </h3>
-            </div>
+         
             <!-- /.card-header -->
             @yield('konten')
 

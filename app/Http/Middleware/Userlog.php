@@ -15,11 +15,14 @@ class Userlog
      */
     public function handle($request, Closure $next)
     {
-            if (Auth::check() && Auth::user()->status == 'admin') {
+            if (Auth::user()->status == 'Admin') {
               return $next($request);
             }
-            elseif (Auth::check() && Auth::user()->status == 'remuneration') {
+            elseif (Auth::user()->status == 'Remuneration') {
                 return redirect('/ticket');
+              }
+              elseif (Auth::user()->status == 'Human Resource Development') {
+                return redirect('/home');
               }
               else{
                   return redirect('/login');

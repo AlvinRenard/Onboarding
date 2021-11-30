@@ -67,9 +67,6 @@
 
            </div>
          </form>
-         <p class="mb-0">
-           <a href="{{url('register')}}" class="text-center">Register a new membership</a>
-         </p>
        </div>
      </div>
    </div>

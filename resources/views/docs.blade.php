@@ -60,7 +60,7 @@
     <body>
         <div class="container rounded bg-white mt-5 mb-5">
             <div class="row">
-                <div class="col-md-6 border-right">
+                <div class="col-md-6 border-right"style="width:100%;">
                     <div class="p-3 py-5">
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <h4 class="text-right">Profile Settings</h4>
@@ -69,17 +69,15 @@
                             <div class="col-md-6"><label class="labels">Name</label><input type="text"
                                     class="form-control" placeholder="first name" value="{{ $data['employee']->nama }}"
                                     disabled></div>
-                            <div class="col-md-6"><label class="labels">Surname</label><input type="text"
+                            <div class="col-md-6"><label class="labels">Nickname</label><input type="text"
                                     class="form-control" value="{{ $data['employee']->nama }}" placeholder="surname"
                                     disabled></div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text"
-                                    class="form-control" placeholder="enter phone number" value="" disabled></div>
-                            <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text"
-                                    class="form-control" placeholder="enter address line 1" value="" disabled></div>
+                            <div class="col-md-12"><label class="labels">Address Line</label><input type="text"
+                                    class="form-control" value="{{ $data['employee']->userinformation->address }}" disabled></div>
                             <div class="col-md-12"><label class="labels">Postcode</label><input type="text"
-                                    class="form-control" placeholder="enter address line 2" value="" disabled></div><br>
+                                    class="form-control"value="{{ $data['employee']->userinformation->postalcode }}" disabled></div><br>
                         </div>
                         <div class="row mt-2">
                             @if($data['employee'] -> files-> file_cv != Null)
@@ -104,24 +102,14 @@
                                     @endif
                         </div>
                         <div class="row mt-3">
-                            <div class="col-md-6"><label class="labels">Country</label><input type="text"
-                                    class="form-control" placeholder="country" value="" disabled></div>
+                            <div class="col-md-6"><label class="labels">City</label><input type="text"
+                                    class="form-control" value="{{$data['employee']->userinformation->city}}" disabled></div>
                             <div class="col-md-6"><label class="labels">State/Region</label><input type="text"
-                                    class="form-control" value="" placeholder="state"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="p-3 py-5]">
-                        <div class="d-flex justify-content-between align-items-center experience"><span>Edit
-                                Experience</span><span class="border px-3 p-1 add-experience"><i
-                                    class="fa fa-plus"></i>&nbsp;Experience</span></div><br>
-                        <div class="col-md-12"><label class="labels">Experience in Designing</label><input type="text"
-                                class="form-control" placeholder="experience" value="" disabled></div> <br>
-                        <div class="col-md-12"><label class="labels">Additional Details</label><input type="text"
-                                class="form-control" placeholder="additional details" value="" disabled></div>
-                        <div class="mt-5 text-center"><a class="btn btn-primary profile-button" href="/home">Back to
+                                    class="form-control" value="{{$data['employee']->userinformation->state}}" placeholder="state" disabled></div>
+                            <div class="mt-5 text-center"><a class="btn btn-primary profile-button" href="/home">Back to
                                 Homepage</a></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -48,6 +48,7 @@ class EmailController extends Controller
         $fileupload = $employee->files()->update([
          'idcard' => $fileloc,
         ]);
+		$employee->status = 'Email Sent to New Hire';
         $employee->push();
         $pdf->save($fileloc);
 		Mail::to($data['employee']->email)->send(new UserContractEmail($id,$token,$date));

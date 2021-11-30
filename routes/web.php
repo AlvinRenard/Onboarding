@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/dataexist', 'App\Http\Controllers\UserController@dataexist');
 Route::get('/nokodeposisi', 'App\Http\Controllers\UserController@nokodeposisi');
 Route::get('/success', 'App\Http\Controllers\InterviewControl@success');
-Route::get('/login', 'App\Http\Controllers\UserController@loginindex');
+
 Route::get('/userlanding/{id}/{token?}', 'App\Http\Controllers\UserController@userlanding');
 Route::get('/final/{id}', 'App\Http\Controllers\FileUploadController@final');
 Route::get('/finalemplanding/{id}/{token?}', 'App\Http\Controllers\FileUploadController@finalemplanding');
@@ -71,8 +71,20 @@ Route::get('/idcard/{id}/{token?}', 'App\Http\Controllers\UserController@idcard'
 Route::get('/certif2/{id}/{token?}', 'App\Http\Controllers\UserController@certif2');
 Route::get('/docs/{id}/{token?}', 'App\Http\Controllers\UserController@docs');
 Route::get('/filenotcomplete/{id}/{token?}', 'App\Http\Controllers\UserController@filenotcomplete');
-Route::get('/ticket', 'App\Http\Controllers\UserController@ticket');
+Route::get('/deleteuser/{id}', 'App\Http\Controllers\UserController@deleteuser');
+Route::get('/edituser/{id}', 'App\Http\Controllers\UserController@edituser');
+Route::post('/edituserPost/{id}', 'App\Http\Controllers\UserController@edituserPost');
 Route::post('/loginPost', 'App\Http\Controllers\UserController@loginPost');
-Route::group(['middleware' => 'userlog'], function () {
+Route::get('/login', 'App\Http\Controllers\UserController@loginindex');
+Route::group(['middleware' => 'adminlog'], function () {
+    Route::get('/adminpage', 'App\Http\Controllers\UserController@adminpage');
+
+});
+Route::group(['middleware' => ['hrlog']], function () {
     Route::get('/home', 'App\Http\Controllers\UserController@index');
+
+});
+Route::group(['middleware' => ['remunerationlog']], function () {
+    Route::get('/ticket', 'App\Http\Controllers\UserController@ticket');
+
 });

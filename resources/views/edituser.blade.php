@@ -24,27 +24,28 @@
             </ul>
         </div>
         @endif
-        <form action="{{ url('/registerPost') }}" method="post">
+        <form action="{{ '/edituserPost/'.$id }}" method="post">
             {{ csrf_field() }}
             <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" name="email">
+                <label for="alamat">Name:</label>
+                <input type="text" class="form-control" id="name" name="name">
             </div>
             <div class="form-group">
                 <label for="alamat">Password:</label>
                 <input type="password" class="form-control" id="password" name="password">
             </div>
             <div class="form-group">
-                <label for="alamat">Password Confirmation:</label>
-                <input type="password" class="form-control" id="confirmation" name="confirmation">
-            </div>
-            <div class="form-group">
-                <label for="alamat">Name:</label>
-                <input type="text" class="form-control" id="name" name="name">
-            </div>
-            <div class="form-group">
-                <label for="alamat">status</label>
-                <input type="text" class="form-control" id="status" name="status">
+            <div class="input_field select_option">
+            <label for="alamat">Status:</label>
+                <select class="form-control" id="status" name="status">
+                <option value="" disabled selected>Select Employee Role</option>
+                  <option>Admin</option>
+                  <option>Human Resource Development</option>
+                  <option>Remuneration</option>
+               
+                </select>
+                <div class="select_arrow"></div>
+              </div>
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-md btn-primary">Submit</button>
